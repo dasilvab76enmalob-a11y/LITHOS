@@ -1,0 +1,15 @@
+[background arg="res://Imagenes/Estilo_Sci-fi_Pixel_Art_espacio__0.jpg" fade="0.0"]
+join Althea rightmost
+audio "res://Audios/WhatsApp-Audio-2026-02-16-at-9.32.49-PM.mp3"
+Althea: Hace mucho tiempo, existía un Imperio malvado...
+[wait time="2.0"]
+Althea: Capaces de conquistar las estrellas, fuimos arrastrados hacia su mundo. Un mundo de caos y cenizas. El último eslabon de esperanza de la humanidad provenía de unas extrañas gemas...
+[wait time="2.0"]
+[background arg="res://Imagenes/Imagen_de_gemas_pixel_art_flotando_1.jpg" fade="0.0"]
+join Althea leftmost [mirrored="true"]
+Althea: Nadie sabia de donde provenian estas misterias gemas y tampoco sabiamos que nuestro mundo tal y como lo conociamos estaba a punto de cambiar...
+[wait time="2.0"]
+leave Althea
+join Logo center
+[wait time="8.0"]
+[background fade="0.0"]

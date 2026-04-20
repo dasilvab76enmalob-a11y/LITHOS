@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="DialogicStyle" format=3 uid="uid://cmctbg10huvys"]
+
+[ext_resource type="Script" uid="uid://bwg6yncmh2cml" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_xtdsa"]
+[ext_resource type="Script" uid="uid://dv08k6ljua6fm" path="res://addons/dialogic/Resources/dialogic_style.gd" id="11_ktnjj"]
+
+[sub_resource type="Resource" id="Resource_mfxnl"]
+script = ExtResource("2_xtdsa")
+
+[resource]
+script = ExtResource("11_ktnjj")
+name = "Layout"
+layer_info = {
+"": SubResource("Resource_mfxnl")
+}
