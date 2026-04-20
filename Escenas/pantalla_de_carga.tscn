@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://cw2kie71ig4p7"]
+
+[ext_resource type="Script" uid="uid://hi3glq2s5nll" path="res://Scripts/pantalla_de_carga.gd" id="1_5lv4j"]
+[ext_resource type="Texture2D" uid="uid://0jop50fc1otn" path="res://Imagenes/sprite_nave_espacial_pixel_art_vol_2.jpg" id="2_5e04t"]
+[ext_resource type="AudioStream" uid="uid://crl0r1ycytsao" path="res://Audios/Echoes Beyond the Eventide.mp3" id="3_hrof1"]
+
+[sub_resource type="Animation" id="Animation_5lv4j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["CARGANDO"]
+}
+
+[sub_resource type="Animation" id="Animation_5e04t"]
+resource_name = "new_animation"
+length = 2.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": ["CARGANDO", "CARGANDO.", "CARGANDO..", "CARGANDO...", "CARGANDO...."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hrof1"]
+_data = {
+&"RESET": SubResource("Animation_5lv4j"),
+&"new_animation": SubResource("Animation_5e04t")
+}
+
+[node name="Pantalla de carga" type="Node2D" unique_id=820375611]
+script = ExtResource("1_5lv4j")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=606049372]
+offset_right = 1158.0
+offset_bottom = 646.0
+color = Color(0, 0, 0, 1)
+
+[node name="SpriteNaveEspacialPixelArtVol2" type="Sprite2D" parent="." unique_id=33534662]
+position = Vector2(538, 282)
+scale = Vector2(1.0148026, 0.87259614)
+texture = ExtResource("2_5e04t")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1206190820]
+position = Vector2(584, 318)
+
+[node name="Label" type="Label" parent="." unique_id=1492848157]
+offset_left = 418.0
+offset_top = 537.0
+offset_right = 980.0
+offset_bottom = 674.0
+theme_override_font_sizes/font_size = 50
+text = "CARGANDO"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=109655438]
+libraries/ = SubResource("AnimationLibrary_hrof1")
+
+[node name="Timer" type="Timer" parent="." unique_id=1866524943]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=129852958]
+stream = ExtResource("3_hrof1")
+autoplay = true

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://8onier1qnbpq"]
+
+[ext_resource type="Texture2D" uid="uid://yumjabrguy45" path="res://Imagenes/Project_LITHIOS_Estilo_Sci-fi_Pix_0.jpg" id="1_ft1ng"]
+[ext_resource type="Script" uid="uid://vayh1bunhpo6" path="res://Scripts/menu.gd" id="2_qncgo"]
+[ext_resource type="AudioStream" uid="uid://crl0r1ycytsao" path="res://Audios/Echoes Beyond the Eventide.mp3" id="3_qncgo"]
+
+[node name="Menu Principal" type="Node2D" unique_id=1904514090]
+
+[node name="ProjectLithiosEstiloSciFiPix0" type="Sprite2D" parent="." unique_id=938018382]
+position = Vector2(575, 314.25)
+scale = Vector2(0.94983554, 0.79266834)
+texture = ExtResource("1_ft1ng")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=992701394]
+offset_left = 795.0
+offset_top = 544.0
+offset_right = 1143.0
+offset_bottom = 654.0
+script = ExtResource("2_qncgo")
+
+[node name="Nueva Partida" type="Button" parent="VBoxContainer" unique_id=1411125290]
+layout_mode = 2
+text = "NUEVA PARTIDA"
+
+[node name="Opciones" type="Button" parent="VBoxContainer" unique_id=1542732854]
+layout_mode = 2
+text = "OPCIONES"
+
+[node name="Salir" type="Button" parent="VBoxContainer" unique_id=713120774]
+layout_mode = 2
+text = "SALIR"
+
+[node name="Musica Menu" type="AudioStreamPlayer" parent="." unique_id=70149332]
+stream = ExtResource("3_qncgo")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Nueva Partida" to="VBoxContainer" method="_on_nueva_partida_pressed"]
+[connection signal="pressed" from="VBoxContainer/Opciones" to="VBoxContainer" method="_on_opciones_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="VBoxContainer" method="_on_salir_pressed"]
+[connection signal="finished" from="Musica Menu" to="VBoxContainer" method="_on_musica_menu_finished"]
