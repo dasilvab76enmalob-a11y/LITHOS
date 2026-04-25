@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bdr4wb72klnr"]
+
+[ext_resource type="Script" uid="uid://ciiqmjt78sslk" path="res://common/globals/MusicaGlobal.gd" id="2_newt5"]
+
+[node name="MusicaGlobal" type="AudioStreamPlayer2D" unique_id=811059246]
+process_mode = 3
+script = ExtResource("2_newt5")

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://gviwe34w4ck0"]
+
+[ext_resource type="Script" uid="uid://camo5p1rd46fr" path="res://src/niveles/intro/intro_escena_script.gd" id="1_at5sl"]
+[ext_resource type="Texture2D" uid="uid://ckyqaphyay4ea" path="res://src/personajes/logo/Logo.png" id="1_kqk4p"]
+[ext_resource type="AudioStream" uid="uid://cb2cgwwdgg64r" path="res://assets/audio/soundtrack/Realm_s_Ascent - Intro.mp3" id="2_53unc"]
+
+[node name="intro" type="Node2D" unique_id=1835416764]
+script = ExtResource("1_at5sl")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1443627982]
+position = Vector2(579, 324)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=305562383]
+stream = ExtResource("2_53unc")
+autoplay = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=425969760]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 1.0
+offset_right = 1158.0
+offset_bottom = 652.99994
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1051892583]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(576, 326.75)
+scale = Vector2(0.9046875, 0.76494724)
+texture = ExtResource("1_kqk4p")

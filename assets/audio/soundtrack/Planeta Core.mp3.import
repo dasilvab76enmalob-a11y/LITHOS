@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://chxxv81djkx5c"
+path="res://.godot/imported/Planeta Core.mp3-96fe01518f6baba4e9eb5ba5a56ae925.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/soundtrack/Planeta Core.mp3"
+dest_files=["res://.godot/imported/Planeta Core.mp3-96fe01518f6baba4e9eb5ba5a56ae925.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

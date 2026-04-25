@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://m3qnkaqhbvxk"]
+
+[ext_resource type="Script" uid="uid://q1hk88icns2s" path="res://src/menus/menu_opciones/menu_opciones.gd" id="1_ldlq1"]
+[ext_resource type="Texture2D" uid="uid://bb0n671jeoge2" path="res://src/personajes/Layla/Gemini_Generated_Image_sq7mk7sq7mk7sq7m.png" id="2_1l8de"]
+[ext_resource type="FontFile" uid="uid://cvps6332veja8" path="res://assets/fonts/static/Orbitron-Medium.ttf" id="3_s5pj7"]
+
+[sub_resource type="FontVariation" id="FontVariation_3marx"]
+base_font = ExtResource("3_s5pj7")
+
+[sub_resource type="FontVariation" id="FontVariation_lkco2"]
+base_font = ExtResource("3_s5pj7")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y34q8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+border_color = Color(0.003921569, 0.21176471, 0.3882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4njmf"]
+bg_color = Color(0.10980392, 0.53333336, 0.78431374, 1)
+border_width_bottom = 2
+border_color = Color(0.49411765, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_64b7u"]
+bg_color = Color(0.10980392, 0.53333336, 0.78431374, 1)
+border_width_bottom = 2
+border_color = Color(0.49411765, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3marx"]
+bg_color = Color(0.95686275, 0.62352943, 0.7529412, 1)
+
+[node name="Node2D" type="Node2D" unique_id=1857621674]
+process_mode = 3
+script = ExtResource("1_ldlq1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1789697299]
+offset_right = 1146.0
+offset_bottom = 652.0
+mouse_filter = 2
+
+[node name="GeminiGeneratedImageSq7Mk7Sq7Mk7Sq7m" type="Sprite2D" parent="." unique_id=1135848888]
+position = Vector2(297, 385)
+scale = Vector2(0.578125, 0.56640625)
+texture = ExtResource("2_1l8de")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1280008605]
+offset_left = 758.0
+offset_top = 228.0
+offset_right = 964.0
+offset_bottom = 263.0
+
+[node name="Configuraciones" type="Label" parent="VBoxContainer" unique_id=1208505259]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_3marx")
+text = "CONFIGURACIONES"
+
+[node name="Atras" type="Button" parent="." unique_id=844766712]
+custom_minimum_size = Vector2(10, 10)
+offset_left = 767.0
+offset_top = 505.0
+offset_right = 922.0
+offset_bottom = 528.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_lkco2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_y34q8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4njmf")
+theme_override_styles/focus = SubResource("StyleBoxFlat_64b7u")
+text = "ATRÁS"
+
+[node name="ControlVolumen" type="HSlider" parent="." unique_id=1017942364]
+offset_left = 745.0
+offset_top = 323.0
+offset_right = 1036.0
+offset_bottom = 339.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_3marx")
+min_value = -40.0
+max_value = 0.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=2133483285]
+custom_minimum_size = Vector2(10, 0)
+offset_left = 631.0
+offset_top = 318.0
+offset_right = 787.0
+offset_bottom = 421.0
+
+[node name="Volumen" type="Label" parent="VBoxContainer2" unique_id=1248354037]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_3marx")
+text = "VOLUMEN"
+
+[node name="Pantalla" type="Label" parent="VBoxContainer2" unique_id=949440401]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_3marx")
+text = "PANTALLA COMPLETA"
+
+[node name="BotonPantalla" type="CheckButton" parent="VBoxContainer2/Pantalla" unique_id=1016926391]
+layout_mode = 0
+offset_left = 109.0
+offset_right = 261.0
+offset_bottom = 24.0
+
+[connection signal="pressed" from="Atras" to="." method="_on_atras_pressed"]
+[connection signal="value_changed" from="ControlVolumen" to="." method="_on_control_volumen_value_changed"]
+[connection signal="toggled" from="VBoxContainer2/Pantalla/BotonPantalla" to="." method="_on_boton_pantalla_toggled"]

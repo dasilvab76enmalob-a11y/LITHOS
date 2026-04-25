@@ -1,0 +1,188 @@
+[gd_scene format=3 uid="uid://bgbyqnic67a3j"]
+
+[ext_resource type="Script" uid="uid://b5clcsb6un0nq" path="res://src/menus/menu_principal/menu_principal_script.gd" id="1_ng7ll"]
+[ext_resource type="Texture2D" uid="uid://dseyf5q6x8oc6" path="res://src/backgrounds/ChatGPT Image 18 abr 2026, 20_14_05.png" id="2_xdfv3"]
+[ext_resource type="Texture2D" uid="uid://8vf6ninud1an" path="res://src/personajes/Logo/ChatGPT Image 18 abr 2026, 20_19_11-Photoroom.png" id="3_prjs6"]
+[ext_resource type="FontFile" uid="uid://cvps6332veja8" path="res://assets/fonts/static/Orbitron-Medium.ttf" id="4_kdw5i"]
+
+[sub_resource type="FontVariation" id="FontVariation_23jxm"]
+base_font = ExtResource("4_kdw5i")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fh6o6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+border_color = Color(0.003921569, 0.21176471, 0.3882353, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qcrpt"]
+bg_color = Color(0.10980392, 0.53333336, 0.78431374, 1)
+border_width_bottom = 2
+border_color = Color(0.49411765, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kdw5i"]
+bg_color = Color(0.10980392, 0.53333336, 0.78431374, 1)
+border_width_bottom = 2
+border_color = Color(0.49411765, 1, 1, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_3msb3"]
+base_font = ExtResource("4_kdw5i")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kgda"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+border_color = Color(0.003921569, 0.16862746, 0.32156864, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23jxm"]
+bg_color = Color(0.10980392, 0.53333336, 0.78431374, 1)
+border_width_bottom = 2
+border_color = Color(0.49411765, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3msb3"]
+bg_color = Color(0.10980392, 0.53333336, 0.78431374, 1)
+border_width_bottom = 2
+border_color = Color(0.49411765, 1, 1, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_8xcax"]
+base_font = ExtResource("4_kdw5i")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pt5xj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+border_color = Color(0.003921569, 0.19215687, 0.35686275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_va47k"]
+bg_color = Color(0.10980392, 0.53333336, 0.78431374, 1)
+border_width_bottom = 2
+border_color = Color(0.49411765, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8xcax"]
+bg_color = Color(0.10980392, 0.53333336, 0.78431374, 1)
+border_width_bottom = 2
+border_color = Color(0.49411765, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_va47k"]
+
+[sub_resource type="FontVariation" id="FontVariation_kdw5i"]
+base_font = ExtResource("4_kdw5i")
+
+[sub_resource type="LabelSettings" id="LabelSettings_23jxm"]
+font = SubResource("FontVariation_kdw5i")
+font_color = Color(0, 0, 0, 1)
+
+[node name="MenuPrincipal" type="Control" unique_id=302013955]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ng7ll")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1711820741]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.333951
+anchor_bottom = 0.4897151
+offset_top = 2.0
+offset_right = 1151.0
+offset_bottom = 647.0
+metadata/_edit_use_anchors_ = true
+
+[node name="ChatGptImage18Abr2026,201405" type="Sprite2D" parent="ColorRect" unique_id=1698576725]
+position = Vector2(386, 338)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_xdfv3")
+
+[node name="ChatGptImage18Abr2026,201911Photoroom" type="Sprite2D" parent="ColorRect" unique_id=1992570228]
+position = Vector2(905, 263)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_prjs6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1931890029]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 0
+offset_left = 771.0
+offset_top = 392.0
+offset_right = 1040.0
+offset_bottom = 495.0
+
+[node name="NuevaPartida" type="Button" parent="VBoxContainer" unique_id=1202912384]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_23jxm")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fh6o6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qcrpt")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kdw5i")
+text = "NUEVA PARTIDA"
+
+[node name="Continuar" type="Button" parent="VBoxContainer" unique_id=1046734194]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_3msb3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4kgda")
+theme_override_styles/hover = SubResource("StyleBoxFlat_23jxm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_3msb3")
+text = "CONTINUAR"
+
+[node name="Opciones" type="Button" parent="VBoxContainer" unique_id=1618619614]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_3msb3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_4kgda")
+theme_override_styles/hover = SubResource("StyleBoxFlat_23jxm")
+theme_override_styles/focus = SubResource("StyleBoxFlat_3msb3")
+text = "OPCIONES"
+
+[node name="Salir" type="Button" parent="VBoxContainer" unique_id=1093297232]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontVariation_8xcax")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pt5xj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_va47k")
+theme_override_styles/focus = SubResource("StyleBoxFlat_8xcax")
+text = "SALIR"
+
+[node name="PanelConfirmacion" type="Panel" parent="." unique_id=501704135]
+top_level = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 180.0
+offset_top = 198.0
+offset_right = 497.0
+offset_bottom = 283.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "DESESAS INICIAR UNA NUEVA HISTORIA?"
+theme_override_styles/panel = SubResource("StyleBoxEmpty_va47k")
+
+[node name="Label" type="Label" parent="PanelConfirmacion" unique_id=1457198469]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 319.0
+offset_bottom = 29.0
+text = "\"¿Desea iniciar una nueva historia?\""
+label_settings = SubResource("LabelSettings_23jxm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelConfirmacion" unique_id=296564698]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 33.0
+offset_right = 264.0
+offset_bottom = 74.5
+
+[node name="SI" type="Button" parent="PanelConfirmacion/HBoxContainer" unique_id=1941426548]
+layout_mode = 2
+text = "      SI       "
+
+[node name="NO" type="Button" parent="PanelConfirmacion/HBoxContainer" unique_id=1388647264]
+layout_mode = 2
+text = "      NO       "
+
+[connection signal="pressed" from="VBoxContainer/NuevaPartida" to="." method="_on_nueva_partida_pressed"]
+[connection signal="pressed" from="VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Opciones" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="PanelConfirmacion/HBoxContainer/SI" to="." method="_on_si_pressed"]
+[connection signal="pressed" from="PanelConfirmacion/HBoxContainer/NO" to="." method="_on_no_pressed"]

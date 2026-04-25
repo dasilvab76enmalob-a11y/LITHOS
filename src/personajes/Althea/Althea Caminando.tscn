@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dhg0oo6ivi4hf"]
+
+[ext_resource type="Texture2D" uid="uid://dnlvq5dchwipm" path="res://Imagenes/Althea.png" id="1_f6img"]
+[ext_resource type="Script" uid="uid://doahxhr1xdxky" path="res://Escenas/Intro/althea.gd" id="1_uw5ep"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f6img"]
+radius = 77.5
+height = 284.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uw5ep"]
+atlas = ExtResource("1_f6img")
+region = Rect2(42, 0, 259, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxj8g"]
+atlas = ExtResource("1_f6img")
+region = Rect2(819, 360, 259, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yukj6"]
+atlas = ExtResource("1_f6img")
+region = Rect2(301, 360, 259, 360)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ku642"]
+atlas = ExtResource("1_f6img")
+region = Rect2(301, 0, 259, 360)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ww5i6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uw5ep")
+}],
+"loop": true,
+"name": &"Abajo",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxj8g")
+}],
+"loop": true,
+"name": &"Arriba",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yukj6")
+}],
+"loop": true,
+"name": &"Derecha",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ku642")
+}],
+"loop": true,
+"name": &"Izquierda",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=1049187231]
+
+[node name="Althea" type="CharacterBody2D" parent="." unique_id=2103303188]
+script = ExtResource("1_uw5ep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Althea" unique_id=1927519646]
+position = Vector2(3.5, 1)
+shape = SubResource("CapsuleShape2D_f6img")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Althea" unique_id=685241206]
+sprite_frames = SubResource("SpriteFrames_ww5i6")
+animation = &"Abajo"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=923408379]
+zoom = Vector2(2, 2)
