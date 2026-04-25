@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cw2kie71ig4p7"]
 
 [ext_resource type="Script" uid="uid://hi3glq2s5nll" path="res://Scripts/pantalla_de_carga.gd" id="1_5lv4j"]
-[ext_resource type="Texture2D" uid="uid://0jop50fc1otn" path="res://Imagenes/sprite_nave_espacial_pixel_art_vol_2.jpg" id="2_5e04t"]
+[ext_resource type="Texture2D" uid="uid://by1ktbn43gx6s" path="res://Imagenes/sprite_nave_espacial_pixel_art_vol_2.jpg" id="2_5e04t"]
 [ext_resource type="AudioStream" uid="uid://crl0r1ycytsao" path="res://Audios/Echoes Beyond the Eventide.mp3" id="3_hrof1"]
 
 [sub_resource type="Animation" id="Animation_5lv4j"]

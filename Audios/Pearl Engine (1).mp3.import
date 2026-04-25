@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://u0rgx8c5k82r"
+path="res://.godot/imported/Pearl Engine (1).mp3-b4b69fa536c4a9dcad4b5f0708d3e8e8.mp3str"
+
+[deps]
+
+source_file="res://Audios/Pearl Engine (1).mp3"
+dest_files=["res://.godot/imported/Pearl Engine (1).mp3-b4b69fa536c4a9dcad4b5f0708d3e8e8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
