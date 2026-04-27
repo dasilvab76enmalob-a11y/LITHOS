@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://m3qnkaqhbvxk"]
 
 [ext_resource type="Script" uid="uid://q1hk88icns2s" path="res://src/menus/menu_opciones/menu_opciones.gd" id="1_ldlq1"]
-[ext_resource type="Texture2D" uid="uid://bb0n671jeoge2" path="res://src/personajes/Layla/Gemini_Generated_Image_sq7mk7sq7mk7sq7m.png" id="2_1l8de"]
+[ext_resource type="Texture2D" uid="uid://bb0n671jeoge2" path="res://src/personajes/layla/Gemini_Generated_Image_sq7mk7sq7mk7sq7m.png" id="2_1l8de"]
 [ext_resource type="FontFile" uid="uid://cvps6332veja8" path="res://assets/fonts/static/Orbitron-Medium.ttf" id="3_s5pj7"]
 
 [sub_resource type="FontVariation" id="FontVariation_3marx"]

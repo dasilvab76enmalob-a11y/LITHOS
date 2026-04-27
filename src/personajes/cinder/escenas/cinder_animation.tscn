@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://ds7o6y3o6ld4n"]
+
+[ext_resource type="Texture2D" uid="uid://douwqini6iffs" path="res://src/personajes/cinder/assets/cinder_idle.png" id="1_3yl45"]
+[ext_resource type="AnimationLibrary" uid="uid://cla8vks4fyomh" path="res://src/common/animaciones/animaciones_libreria/animaciones_parado.res" id="1_cy6xo"]
+
+[sub_resource type="Animation" id="Animation_lhyd8"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ossq7"]
+_data = {
+&"RESET": SubResource("Animation_lhyd8")
+}
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_neioc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d05rf"]
+size = Vector2(20, 40)
+
+[node name="CinderAnimation" type="CharacterBody2D" unique_id=1631291207]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1346683898]
+texture = ExtResource("1_3yl45")
+hframes = 48
+frame = 42
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2097330911]
+libraries/ = SubResource("AnimationLibrary_ossq7")
+libraries/animaciones_parado = ExtResource("1_cy6xo")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1655298541]
+tree_root = SubResource("AnimationNodeStateMachine_neioc")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=326247399]
+position = Vector2(-3, 1)
+shape = SubResource("RectangleShape2D_d05rf")

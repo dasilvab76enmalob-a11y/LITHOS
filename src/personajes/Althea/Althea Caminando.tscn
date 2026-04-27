@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dhg0oo6ivi4hf"]
 
-[ext_resource type="Texture2D" uid="uid://dnlvq5dchwipm" path="res://Imagenes/Althea.png" id="1_f6img"]
-[ext_resource type="Script" uid="uid://doahxhr1xdxky" path="res://Escenas/Intro/althea.gd" id="1_uw5ep"]
+[ext_resource type="Texture2D" path="res://Imagenes/Althea.png" id="1_f6img"]
+[ext_resource type="Script" uid="uid://doahxhr1xdxky" path="res://src/personajes/althea/althea.gd" id="1_uw5ep"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f6img"]
 radius = 77.5
