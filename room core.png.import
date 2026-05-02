@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c67vqas3cys17"
-path="res://.godot/imported/Althea.png-187e46d01e90b9610c0b068a5430e21b.ctex"
+uid="uid://ddww567d80e32"
+path="res://.godot/imported/room core.png-7a6830e921d0a3d54ffa589e322a2ff5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/personajes/Althea/Althea.png"
-dest_files=["res://.godot/imported/Althea.png-187e46d01e90b9610c0b068a5430e21b.ctex"]
+source_file="res://room core.png"
+dest_files=["res://.godot/imported/room core.png-7a6830e921d0a3d54ffa589e322a2ff5.ctex"]
 
 [params]
 

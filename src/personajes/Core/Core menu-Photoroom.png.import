@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyiisb5jls4p"
-path="res://.godot/imported/Core menu-Photoroom.png-18eeb9447bc3f9a5352f41252cd3170e.ctex"
+path="res://.godot/imported/Core menu-Photoroom.png-3d964c29dfd7bac82197960642de6273.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/personajes/core/Core menu-Photoroom.png"
-dest_files=["res://.godot/imported/Core menu-Photoroom.png-18eeb9447bc3f9a5352f41252cd3170e.ctex"]
+source_file="res://src/personajes/Core/Core menu-Photoroom.png"
+dest_files=["res://.godot/imported/Core menu-Photoroom.png-3d964c29dfd7bac82197960642de6273.ctex"]
 
 [params]
 

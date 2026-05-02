@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyeg1sfglxiht"
-path="res://.godot/imported/Logo Blanco-Photoroom.png-bcbf9dfd3c13d2056d8157d8ed782392.ctex"
+path="res://.godot/imported/Logo Blanco-Photoroom.png-8bf2fdd143ce9b7b05f1c430d8d6780a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/personajes/logo/Logo Blanco-Photoroom.png"
-dest_files=["res://.godot/imported/Logo Blanco-Photoroom.png-bcbf9dfd3c13d2056d8157d8ed782392.ctex"]
+source_file="res://src/personajes/Logo/Logo Blanco-Photoroom.png"
+dest_files=["res://.godot/imported/Logo Blanco-Photoroom.png-8bf2fdd143ce9b7b05f1c430d8d6780a.ctex"]
 
 [params]
 

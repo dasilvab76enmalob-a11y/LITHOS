@@ -1,12 +1,19 @@
 class_name Player
 extends CharacterBody2D
 
-@export var speed : float = 100
+# 60 es el número ideal para pantallas de 60Hz (1 píxel por frame)
+@export var speed : float = 60.0
 @onready var animation_tree: AnimationTree = $AnimationTree
 
+# --- CONFIGURACIÓN DE CÁMARAS ---
+@onready var camara_proxima: Camera2D = $Camera2D 
+@onready var camara_mundo: Camera2D = get_tree().root.find_child("Camara Mundo", true, false)
+
+var modo_mapa : bool = false
 var input : Vector2
 var raw_input : Vector2
 var playback : AnimationNodeStateMachinePlayback
+
 const DIAGONAL_RELEASE_GRACE := 0.1
 const CARDINAL_CONFIRM_TIME := 0.025
 const DIRECTION_EPSILON := 0.01
@@ -16,14 +23,46 @@ func _ready():
 	animation_tree.active = true
 	playback = animation_tree["parameters/playback"]
 	playback.start("parado")
+	
+	if camara_proxima: camara_proxima.enabled = true
+	if camara_mundo: camara_mundo.enabled = false
 
 func _physics_process(delta: float) -> void:
-	raw_input = Input.get_vector("left", "right", "up", "down")
+	# Obtenemos el vector sin normalizar
+	raw_input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	input = _resolve_input(raw_input, delta)
-	velocity = input * speed
+	
+	# Eliminamos la normalización automática de Input.get_vector()
+	# Esto hace que en diagonal la velocidad sea 'speed' en cada eje.
+	var final_velocity = raw_input
+	if final_velocity.length() > 0:
+		# Aquí forzamos que si es diagonal, no se acorte el vector
+		final_velocity.x = sign(raw_input.x) if abs(raw_input.x) > 0 else 0
+		final_velocity.y = sign(raw_input.y) if abs(raw_input.y) > 0 else 0
+	
+	velocity = final_velocity * speed
+	
 	move_and_slide()
+	
+	# Posicionamiento de cámara sin decimales
+	if camara_proxima and camara_proxima.enabled:
+		camara_proxima.global_position = global_position.round()
+		
 	update_animation_parameters(delta)
 	select_animation()
+
+# --- DETECCIÓN DE TECLA ENTER ---
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_ENTER or event.keycode == KEY_KP_ENTER:
+			alternar_camara()
+
+func alternar_camara():
+	if camara_proxima == null or camara_mundo == null:
+		return
+	modo_mapa = !modo_mapa
+	camara_proxima.enabled = !modo_mapa
+	camara_mundo.enabled = modo_mapa
 
 func select_animation():
 	if input == Vector2.ZERO:
@@ -33,6 +72,7 @@ func select_animation():
 		if playback.get_current_node() != "caminar":
 			playback.travel("caminar")
 
+# --- EL RESTO DEL CÓDIGO SE MANTIENE IGUAL ---
 var last_direction : Vector2 = Vector2.DOWN
 var time_since_last_diagonal := INF
 var last_diagonal_direction := Vector2.DOWN
@@ -51,7 +91,6 @@ func update_animation_parameters(delta: float):
 			cardinal_transition_time = 0.0
 		else:
 			if _is_diagonal(last_direction):
-				# Filter out transient 1-frame cardinal directions when releasing diagonal input.
 				cardinal_transition_time += delta
 				if cardinal_transition_time >= CARDINAL_CONFIRM_TIME:
 					last_direction = current_direction
@@ -65,7 +104,6 @@ func update_animation_parameters(delta: float):
 		if time_since_last_diagonal <= DIAGONAL_RELEASE_GRACE:
 			last_direction = last_diagonal_direction
 	
-
 	animation_tree.set("parameters/parado/blend_position", last_direction)
 	animation_tree.set("parameters/caminar/blend_position", last_direction)
 
@@ -76,15 +114,8 @@ func _resolve_input(current_raw_input: Vector2, delta: float) -> Vector2:
 	var resolved_input := current_raw_input
 	var was_diagonal := _is_diagonal(previous_raw_input)
 	var is_cardinal_now := current_raw_input != Vector2.ZERO and not _is_diagonal(current_raw_input)
-	var released_movement := (
-		Input.is_action_just_released("left")
-		or Input.is_action_just_released("right")
-		or Input.is_action_just_released("up")
-		or Input.is_action_just_released("down")
-	)
+	var released_movement := (Input.is_action_just_released("ui_left") or Input.is_action_just_released("ui_right") or Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_down"))
 
-	# If a diagonal changes to cardinal because one key was released, hold briefly
-	# to avoid accidental cardinal drift while the player finishes releasing keys.
 	if diagonal_release_settle_timer <= 0.0 and was_diagonal and is_cardinal_now and released_movement:
 		diagonal_release_settle_timer = DIAGONAL_RELEASE_SETTLE_TIME
 		pending_cardinal_input = current_raw_input

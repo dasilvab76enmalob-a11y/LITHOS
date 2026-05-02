@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bcwsteukmpfph"
-path="res://.godot/imported/Gemini_Generated_Image_xxtlouxxtlouxxtl.png-a4fc4d92cdefa0661e684ad1395e9032.ctex"
+path="res://.godot/imported/Gemini_Generated_Image_xxtlouxxtlouxxtl.png-5b7f430e244815ef995a384877b3c785.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/personajes/althea/Gemini_Generated_Image_xxtlouxxtlouxxtl.png"
-dest_files=["res://.godot/imported/Gemini_Generated_Image_xxtlouxxtlouxxtl.png-a4fc4d92cdefa0661e684ad1395e9032.ctex"]
+source_file="res://src/personajes/Althea/Gemini_Generated_Image_xxtlouxxtlouxxtl.png"
+dest_files=["res://.godot/imported/Gemini_Generated_Image_xxtlouxxtlouxxtl.png-5b7f430e244815ef995a384877b3c785.ctex"]
 
 [params]
 

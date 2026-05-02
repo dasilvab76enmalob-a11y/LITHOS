@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bnyas0j7ajjr1"]
 
-[ext_resource type="Script" uid="uid://fjbtcwgh3s35" path="res://src/personajes/core/scripts/core_body.gd" id="1_rarcr"]
-[ext_resource type="Texture2D" uid="uid://qxjyup4xk2pg" path="res://src/personajes/core/assets/core_sprite.png" id="2_8rypw"]
+[ext_resource type="Script" uid="uid://fjbtcwgh3s35" path="res://src/personajes/Core/scripts/core_body.gd" id="1_rarcr"]
+[ext_resource type="Texture2D" uid="uid://qxjyup4xk2pg" path="res://src/personajes/Core/assets/core_sprite.png" id="2_8rypw"]
 [ext_resource type="AnimationLibrary" uid="uid://ic22ace6gv4j" path="res://src/common/animaciones/animaciones_libreria/animaciones_caminar.res" id="4_no43q"]
 [ext_resource type="AnimationLibrary" uid="uid://cla8vks4fyomh" path="res://src/common/animaciones/animaciones_libreria/animaciones_parado.res" id="5_kqxkw"]
 
@@ -97,13 +97,17 @@ states/parado/node = SubResource("AnimationNodeBlendSpace2D_782qe")
 states/parado/position = Vector2(321, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0816"]
-size = Vector2(22, 40)
+size = Vector2(11, 5)
 
-[node name="Character" type="CharacterBody2D" unique_id=1749285248]
+[node name="Player" type="CharacterBody2D" unique_id=1749285248]
+y_sort_enabled = true
+texture_filter = 1
 script = ExtResource("1_rarcr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2071446423]
+y_sort_enabled = true
 texture = ExtResource("2_8rypw")
+offset = Vector2(0, -20)
 hframes = 10
 vframes = 10
 
@@ -118,5 +122,11 @@ parameters/caminar/blend_position = Vector2(0, 0)
 parameters/parado/blend_position = Vector2(0, 1.011111)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1774469725]
-position = Vector2(-3, 1)
+position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_k0816")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1079511918]
+position = Vector2(-3, -17)
+offset = Vector2(0, -20)
+zoom = Vector2(10, 10)
+process_callback = 0

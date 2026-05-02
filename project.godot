@@ -27,6 +27,8 @@ MusicaGlobal="*uid://bdr4wb72klnr"
 [display]
 
 window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
+window/vsync/vsync_mode=3
 
 [physics]
 
@@ -36,3 +38,4 @@ window/stretch/mode="canvas_items"
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+2d/snap/snap_2d_transforms_to_pixel=true
