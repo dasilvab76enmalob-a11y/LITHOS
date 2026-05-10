@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddww567d80e32"
-path="res://.godot/imported/room core.png-7a6830e921d0a3d54ffa589e322a2ff5.ctex"
+uid="uid://bnlds4gsub5pl"
+path="res://.godot/imported/pared larga.png-fcf1c55ff69d47d197952e4f18a92cab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://room core.png"
-dest_files=["res://.godot/imported/room core.png-7a6830e921d0a3d54ffa589e322a2ff5.ctex"]
+source_file="res://pared larga.png"
+dest_files=["res://.godot/imported/pared larga.png-fcf1c55ff69d47d197952e4f18a92cab.ctex"]
 
 [params]
 
