@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwhvs7g3h7gmc"
-path="res://.godot/imported/Ciclo de caminata de personaje chibi.png-1aff39157e3eb1f7368267fb5fb52bd7.ctex"
+path="res://.godot/imported/Ciclo de caminata de personaje chibi.png-fd1312bdf0730e84c2429d33dce4e290.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/personajes/Layla/Ciclo de caminata de personaje chibi.png"
-dest_files=["res://.godot/imported/Ciclo de caminata de personaje chibi.png-1aff39157e3eb1f7368267fb5fb52bd7.ctex"]
+source_file="res://src/personajes/layla/Ciclo de caminata de personaje chibi.png"
+dest_files=["res://.godot/imported/Ciclo de caminata de personaje chibi.png-fd1312bdf0730e84c2429d33dce4e290.ctex"]
 
 [params]
 

@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bnyas0j7ajjr1"]
+
+[ext_resource type="Script" uid="uid://fjbtcwgh3s35" path="res://src/personajes/core/scripts/core_animation.gd" id="1_sh7ga"]
+[ext_resource type="Texture2D" uid="uid://qxjyup4xk2pg" path="res://src/personajes/core/assets/core_sprite.png" id="2_5ed42"]
+[ext_resource type="AnimationLibrary" uid="uid://ic22ace6gv4j" path="res://src/common/animaciones/animaciones_libreria/animaciones_caminar.res" id="3_8nvk4"]
+[ext_resource type="AnimationLibrary" uid="uid://cqqye15bk8y0k" path="res://src/common/animaciones/animaciones_libreria/animaciones_correr.res" id="4_tvlok"]
+[ext_resource type="AnimationLibrary" uid="uid://cla8vks4fyomh" path="res://src/common/animaciones/animaciones_libreria/animaciones_parado.res" id="5_qd2c8"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://bod30v77jl24m" path="res://src/common/animaciones/animation_tree/arbol_base_personajes.tres" id="6_1e0mq"]
+
+[sub_resource type="Animation" id="Animation_x3f3r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [55]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqxkw"]
+_data = {
+&"RESET": SubResource("Animation_x3f3r")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0816"]
+size = Vector2(11, 5)
+
+[node name="Player" type="CharacterBody2D" unique_id=1749285248]
+y_sort_enabled = true
+texture_filter = 1
+script = ExtResource("1_sh7ga")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2071446423]
+y_sort_enabled = true
+texture = ExtResource("2_5ed42")
+offset = Vector2(0, -20)
+hframes = 12
+vframes = 11
+frame = 55
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=317990604]
+libraries/ = SubResource("AnimationLibrary_kqxkw")
+libraries/animaciones_caminar = ExtResource("3_8nvk4")
+libraries/animaciones_correr = ExtResource("4_tvlok")
+libraries/animaciones_parado = ExtResource("5_qd2c8")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=2075668979]
+tree_root = ExtResource("6_1e0mq")
+anim_player = NodePath("../AnimationPlayer")
+parameters/caminar/blend_position = Vector2(0, 0)
+parameters/correr/blend_position = Vector2(-0.006915629, 1)
+parameters/parado/blend_position = Vector2(0, 1.011111)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1774469725]
+position = Vector2(-4, 0)
+shape = SubResource("RectangleShape2D_k0816")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1079511918]
+position = Vector2(-3, -17)
+offset = Vector2(0, -20)
+zoom = Vector2(3, 3)
+process_callback = 0

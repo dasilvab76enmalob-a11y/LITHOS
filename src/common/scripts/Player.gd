@@ -1,8 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
-# 60 es el número ideal para pantallas de 60Hz (1 píxel por frame)
-@export var speed : float = 60.0
+@export var speed : float = 60.0 
+@export var run_speed : float = 150.0 
 @onready var animation_tree: AnimationTree = $AnimationTree
 
 # --- CONFIGURACIÓN DE CÁMARAS ---
@@ -19,6 +19,15 @@ const CARDINAL_CONFIRM_TIME := 0.025
 const DIRECTION_EPSILON := 0.01
 const DIAGONAL_RELEASE_SETTLE_TIME := 0.04
 
+# Variables de dirección
+var last_direction : Vector2 = Vector2.DOWN
+var time_since_last_diagonal := INF
+var last_diagonal_direction := Vector2.DOWN
+var cardinal_transition_time := 0.0
+var diagonal_release_settle_timer := 0.0
+var pending_cardinal_input := Vector2.ZERO
+var previous_raw_input := Vector2.ZERO
+
 func _ready():
 	animation_tree.active = true
 	playback = animation_tree["parameters/playback"]
@@ -28,30 +37,28 @@ func _ready():
 	if camara_mundo: camara_mundo.enabled = false
 
 func _physics_process(delta: float) -> void:
-	# Obtenemos el vector sin normalizar
 	raw_input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	input = _resolve_input(raw_input, delta)
 	
-	# Eliminamos la normalización automática de Input.get_vector()
-	# Esto hace que en diagonal la velocidad sea 'speed' en cada eje.
+	var is_running_input = Input.is_action_pressed("run")
+	var current_speed = run_speed if is_running_input else speed
+	
 	var final_velocity = raw_input
 	if final_velocity.length() > 0:
-		# Aquí forzamos que si es diagonal, no se acorte el vector
 		final_velocity.x = sign(raw_input.x) if abs(raw_input.x) > 0 else 0
 		final_velocity.y = sign(raw_input.y) if abs(raw_input.y) > 0 else 0
+		final_velocity = final_velocity.normalized()
 	
-	velocity = final_velocity * speed
-	
+	velocity = final_velocity * current_speed
 	move_and_slide()
+	global_position = global_position.snapped(Vector2.ONE)
 	
-	# Posicionamiento de cámara sin decimales
 	if camara_proxima and camara_proxima.enabled:
-		camara_proxima.global_position = global_position.round()
+		camara_proxima.global_position = global_position
 		
 	update_animation_parameters(delta)
 	select_animation()
 
-# --- DETECCIÓN DE TECLA ENTER ---
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
 		if event.keycode == KEY_ENTER or event.keycode == KEY_KP_ENTER:
@@ -65,21 +72,18 @@ func alternar_camara():
 	camara_mundo.enabled = modo_mapa
 
 func select_animation():
+	var is_running_input = Input.is_action_pressed("run")
+	
 	if input == Vector2.ZERO:
 		if playback.get_current_node() != "parado":
 			playback.travel("parado")
 	else:
-		if playback.get_current_node() != "caminar":
-			playback.travel("caminar")
-
-# --- EL RESTO DEL CÓDIGO SE MANTIENE IGUAL ---
-var last_direction : Vector2 = Vector2.DOWN
-var time_since_last_diagonal := INF
-var last_diagonal_direction := Vector2.DOWN
-var cardinal_transition_time := 0.0
-var diagonal_release_settle_timer := 0.0
-var pending_cardinal_input := Vector2.ZERO
-var previous_raw_input := Vector2.ZERO
+		if is_running_input:
+			if playback.get_current_node() != "correr":
+				playback.travel("correr")
+		else:
+			if playback.get_current_node() != "caminar":
+				playback.travel("caminar")
 
 func update_animation_parameters(delta: float):
 	if input != Vector2.ZERO:
@@ -106,6 +110,7 @@ func update_animation_parameters(delta: float):
 	
 	animation_tree.set("parameters/parado/blend_position", last_direction)
 	animation_tree.set("parameters/caminar/blend_position", last_direction)
+	animation_tree.set("parameters/correr/blend_position", last_direction)
 
 func _is_diagonal(direction: Vector2) -> bool:
 	return abs(direction.x) > DIRECTION_EPSILON and abs(direction.y) > DIRECTION_EPSILON

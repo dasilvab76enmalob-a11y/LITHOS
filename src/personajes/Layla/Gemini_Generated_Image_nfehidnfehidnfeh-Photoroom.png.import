@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmjv6rl53lfbe"
-path="res://.godot/imported/Gemini_Generated_Image_nfehidnfehidnfeh-Photoroom.png-aaa70d978c9df598c97609ee3812cd05.ctex"
+path="res://.godot/imported/Gemini_Generated_Image_nfehidnfehidnfeh-Photoroom.png-47270c2ed0a30e69f42fd8395a9a86c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/personajes/Layla/Gemini_Generated_Image_nfehidnfehidnfeh-Photoroom.png"
-dest_files=["res://.godot/imported/Gemini_Generated_Image_nfehidnfehidnfeh-Photoroom.png-aaa70d978c9df598c97609ee3812cd05.ctex"]
+source_file="res://src/personajes/layla/Gemini_Generated_Image_nfehidnfehidnfeh-Photoroom.png"
+dest_files=["res://.godot/imported/Gemini_Generated_Image_nfehidnfehidnfeh-Photoroom.png-47270c2ed0a30e69f42fd8395a9a86c7.ctex"]
 
 [params]
 

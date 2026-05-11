@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://duuxtx5wf2mnd"
-path="res://.godot/imported/Logo Blanco.png-8b766d6c35e327f4ec68f3e4ec457a34.ctex"
+path="res://.godot/imported/Logo Blanco.png-f7f835585956bacbb1069acb2d40d11b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/personajes/Logo/Logo Blanco.png"
-dest_files=["res://.godot/imported/Logo Blanco.png-8b766d6c35e327f4ec68f3e4ec457a34.ctex"]
+source_file="res://src/personajes/logo/Logo Blanco.png"
+dest_files=["res://.godot/imported/Logo Blanco.png-f7f835585956bacbb1069acb2d40d11b.ctex"]
 
 [params]
 
