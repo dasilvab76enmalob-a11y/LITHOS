@@ -45,7 +45,7 @@ func _on_atras_pressed() -> void:
 			get_tree().change_scene_to_file(Global.escena_anterior)
 		else:
 			# Ruta de respaldo por si acaso
-			get_tree().change_scene_to_file("res://Escenas/Intro/menu_principal.tscn")
+			get_tree().change_scene_to_file("res://src/menus/menu_principal/menu_principal.tscn")
 
 func _on_boton_pantalla_toggled(toggled_on: bool) -> void:
 	if toggled_on:

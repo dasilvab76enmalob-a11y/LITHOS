@@ -4,27 +4,30 @@ extends Control
 const RUTA_OPCIONES = "res://src/menus/menu_opciones/menu_opciones.tscn"
 const RUTA_CARGA = "res://src/menus/pantalla_carga/pantalla_carga.tscn"
 const RUTA_ESCENA_1 = "res://src/niveles/planeta_core/escena_1.tscn"
+const RUTA_MUSICA_MENU = "res://assets/audio/soundtrack/The_Obsidian_Council - Menu Principal.ogg"
+const RUTA_MUSICA_JUEGO = "res://assets/audio/soundtrack/Glasswind Path - Cinder Theme.ogg"
 
 # --- NODOS ---
 @onready var boton_continuar = $VBoxContainer/Continuar
 @onready var panel_confirmacion = $PanelConfirmacion
 
 func _ready() -> void:
-	# Al entrar al menú, nos aseguramos de que la música suene.
-	# .play() es una función nativa de AudioStreamPlayer (tu escena MusicaGlobal)
-	if is_instance_valid(MusicaGlobal):
-		if not MusicaGlobal.playing:
-			MusicaGlobal.play()
-	
-	# Inicializar estado visual
 	self.modulate.a = 1.0
 	panel_confirmacion.hide()
 	
-	# Verificar si existe una partida guardada para mostrar el botón Continuar
+	# Verificar si existe una partida guardada
 	if FileAccess.file_exists("user://partida.save"):
 		boton_continuar.show()
 	else:
 		boton_continuar.hide()
+	
+	# CORRECCIÓN DE LÓGICA:
+	# Solo ponemos la música del menú si:
+	# 1. No hay música sonando (estamos iniciando el juego).
+	# 2. O si lo que está sonando NO es la música del juego (es decir, venimos de la carga inicial).
+	# SI lo que suena es la música del juego, no hacemos NADA y dejamos que persista.
+	if MusicaGlobal.musica_actual_ruta != RUTA_MUSICA_JUEGO:
+		MusicaGlobal.reproducir_musica(RUTA_MUSICA_MENU)
 
 # --- LÓGICA DE BOTONES PRINCIPALES ---
 
@@ -32,18 +35,12 @@ func _on_nueva_partida_pressed() -> void:
 	panel_confirmacion.show()
 
 func _on_continuar_pressed() -> void:
-	# Antes de ir a la carga, apagamos la música global
-	if is_instance_valid(MusicaGlobal):
-		MusicaGlobal.stop()
-		
+	MusicaGlobal.reproducir_musica(RUTA_MUSICA_JUEGO)
 	if ResourceLoader.exists(RUTA_ESCENA_1):
-																																	get_tree().change_scene_to_file(RUTA_ESCENA_1)
+		get_tree().change_scene_to_file(RUTA_ESCENA_1)
 
 func _on_opciones_pressed() -> void:
 	if ResourceLoader.exists(RUTA_OPCIONES):
-		# Guardamos la ruta actual en el Singleton Global (el de datos, no el de música)
-		Global.escena_anterior = scene_file_path
-		
 		var tween = create_tween()
 		tween.tween_property(self, "modulate:a", 0.0, 0.2)
 		tween.tween_callback(func(): 
@@ -56,18 +53,13 @@ func _on_salir_pressed() -> void:
 # --- LÓGICA DEL PANEL DE CONFIRMACIÓN (SI/NO) ---
 
 func _on_si_pressed() -> void:
-	# 1. Crear/Sobrescribir el archivo de guardado
 	var file = FileAccess.open("user://partida.save", FileAccess.WRITE)
 	if file:
 		file.store_string("Nueva Partida Iniciada")
 		file.close()
 	
-	# 2. DETENER MÚSICA GLOBAL
-	# Usamos .stop() directamente porque MusicaGlobal es un AudioStreamPlayer
-	if is_instance_valid(MusicaGlobal):
-		MusicaGlobal.stop()
+	MusicaGlobal.reproducir_musica(RUTA_MUSICA_JUEGO)
 	
-	# 3. Transición a la escena 1
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.3)
 	tween.tween_callback(func(): 

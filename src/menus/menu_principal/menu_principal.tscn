@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bgbyqnic67a3j"]
 
-[ext_resource type="Script" uid="uid://b5clcsb6un0nq" path="res://src/menus/menu_principal/menu_principal_script.gd" id="1_ng7ll"]
-[ext_resource type="Texture2D" uid="uid://dseyf5q6x8oc6" path="res://src/backgrounds/ChatGPT Image 18 abr 2026, 20_14_05.png" id="2_xdfv3"]
-[ext_resource type="Texture2D" uid="uid://8vf6ninud1an" path="res://src/personajes/Logo/ChatGPT Image 18 abr 2026, 20_19_11-Photoroom.png" id="3_prjs6"]
+[ext_resource type="Script" uid="uid://bcse1djgaud2q" path="res://src/menus/menu_principal/menu_principal_script.gd" id="1_ng7ll"]
+[ext_resource type="Texture2D" uid="uid://dot2e8qufq0i7" path="res://src/background/Pantalla de carga.webp" id="2_xdfv3"]
+[ext_resource type="Texture2D" uid="uid://d0hksmfuyf6sh" path="res://src/background/Logo.webp" id="3_xdfv3"]
 [ext_resource type="FontFile" uid="uid://cvps6332veja8" path="res://assets/fonts/static/Orbitron-Medium.ttf" id="4_kdw5i"]
 
 [sub_resource type="FontVariation" id="FontVariation_23jxm"]
@@ -83,15 +83,15 @@ offset_right = 1151.0
 offset_bottom = 647.0
 metadata/_edit_use_anchors_ = true
 
-[node name="ChatGptImage18Abr2026,201405" type="Sprite2D" parent="ColorRect" unique_id=1698576725]
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect" unique_id=1698576725]
 position = Vector2(386, 338)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_xdfv3")
 
-[node name="ChatGptImage18Abr2026,201911Photoroom" type="Sprite2D" parent="ColorRect" unique_id=1992570228]
-position = Vector2(905, 263)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_prjs6")
+[node name="Logo" type="Sprite2D" parent="ColorRect" unique_id=1992570228]
+position = Vector2(902.99994, 241.00002)
+scale = Vector2(0.35611984, 0.33740234)
+texture = ExtResource("3_xdfv3")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1931890029]
 custom_minimum_size = Vector2(10, 0)

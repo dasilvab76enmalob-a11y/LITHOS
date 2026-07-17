@@ -10,10 +10,8 @@ var tiempo_transcurrido = 0.0
 var carga_completa = false
 
 func _ready() -> void:
-	# --- ESTO INICIA LA MÚSICA AQUÍ Y NO ANTES ---
-	if is_instance_valid(MusicaGlobal):
-		if not MusicaGlobal.playing:
-			MusicaGlobal.play()
+	# Carga la del menú antes de entrar
+	MusicaGlobal.reproducir_musica("res://assets/audio/soundtrack/Cracked Tempo - Pantalla de Carga.ogg")
 	
 	if barra_carga == null or label_continuar == null:
 		return
@@ -43,9 +41,14 @@ func _finalizar_espera() -> void:
 	_hacer_parpadear_texto()
 
 func _hacer_parpadear_texto() -> void:
-	var tween = get_tree().create_tween().set_loops()
+	# El bind_node asegura que el Tween se destruya si el nodo se libera
+	var tween = create_tween().bind_node(label_continuar).set_loops()
 	tween.tween_property(label_continuar, "modulate:a", 0.0, 0.8)
 	tween.tween_property(label_continuar, "modulate:a", 1.0, 0.8)
 
 func _cambiar_de_escena() -> void:
+	# Matar todos los tweens activos antes de cambiar de escena para evitar errores
+	for tween in get_tree().get_processed_tweens():
+		tween.kill()
+		
 	get_tree().change_scene_to_file(RUTA_SIGUIENTE_ESCENA)

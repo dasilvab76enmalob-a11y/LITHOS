@@ -1,11 +1,6 @@
-[gd_scene format=4 uid="uid://bxk1jgiu5qvb4"]
+[gd_scene format=3 uid="uid://bxk1jgiu5qvb4"]
 
-[ext_resource type="Texture2D" uid="uid://bo7ro6rfgnxxp" path="res://assets/texturas/pisos.png" id="1_rctjs"]
-[ext_resource type="Texture2D" uid="uid://duqk6holamtw2" path="res://assets/texturas/pared larga.png" id="3_rctjs"]
-[ext_resource type="Texture2D" uid="uid://tbpkxkeyrobg" path="res://assets/texturas/paredes.png" id="3_yihyv"]
-[ext_resource type="Texture2D" uid="uid://dmp8ijxrn18g4" path="res://assets/texturas/cama.png" id="4_mn21g"]
-[ext_resource type="AudioStream" uid="uid://chxxv81djkx5c" path="res://assets/audio/soundtrack/Planeta Core.mp3" id="12_eyamy"]
-[ext_resource type="PackedScene" uid="uid://bnyas0j7ajjr1" path="res://src/personajes/core/escenas/core_animation.tscn" id="12_pwnkn"]
+[ext_resource type="PackedScene" uid="uid://bnyas0j7ajjr1" path="res://src/personajes/Core/escenas/core_animation.tscn" id="12_pwnkn"]
 [ext_resource type="PackedScene" uid="uid://deg7mwj3ux0s6" path="res://src/menus/menu_pausa/MenuPausa.tscn" id="13_wx8ba"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_yihyv"]
@@ -19,121 +14,6 @@ b = Vector2(-43.470154, -114.27319)
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lc7ux"]
 a = Vector2(174, -1)
 b = Vector2(-1, -91)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mn21g"]
-texture = ExtResource("1_rctjs")
-texture_region_size = Vector2i(32, 22)
-0:6/0 = 0
-0:6/0/texture_origin = Vector2i(0, -2)
-1:6/0 = 0
-1:6/0/texture_origin = Vector2i(0, -2)
-2:6/0 = 0
-2:6/0/texture_origin = Vector2i(0, -2)
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-0:8/0 = 0
-1:8/0 = 0
-2:8/0 = 0
-0:9/0 = 0
-1:9/0 = 0
-2:9/0 = 0
-0:5/0 = 0
-0:5/0/texture_origin = Vector2i(0, -2)
-1:5/0 = 0
-1:5/0/texture_origin = Vector2i(0, -2)
-2:5/0 = 0
-2:5/0/texture_origin = Vector2i(0, -2)
-3:5/0 = 0
-3:5/0/texture_origin = Vector2i(0, -2)
-4:5/0 = 0
-4:5/0/texture_origin = Vector2i(0, -2)
-5:5/0 = 0
-5:5/0/texture_origin = Vector2i(0, -2)
-
-[sub_resource type="TileSet" id="TileSet_rctjs"]
-tile_shape = 1
-tile_layout = 4
-tile_size = Vector2i(32, 16)
-sources/0 = SubResource("TileSetAtlasSource_mn21g")
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yihyv"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gprau"]
-texture = ExtResource("3_yihyv")
-texture_region_size = Vector2i(32, 65)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, 20)
-0:0/0/z_index = 1
-1:0/0 = 0
-1:0/0/texture_origin = Vector2i(0, 20)
-1:0/0/z_index = 1
-2:0/0 = 0
-2:0/0/texture_origin = Vector2i(0, 21)
-2:0/0/z_index = 1
-3:0/0 = 0
-3:0/0/z_index = 1
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lc7ux"]
-texture = ExtResource("3_rctjs")
-texture_region_size = Vector2i(81, 90)
-2:0/0 = 0
-2:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-0:5/0 = 0
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(0, 19)
-0:0/0/z_index = 1
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3dckf"]
-texture = ExtResource("4_mn21g")
-texture_region_size = Vector2i(55, 38)
-0:0/0 = 0
-0:0/0/z_index = 2
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_mn21g"]
-tile_shape = 1
-tile_layout = 4
-tile_size = Vector2i(32, 16)
-physics_layer_0/collision_layer = 1
-physics_layer_0/physics_material = SubResource("PhysicsMaterial_yihyv")
-sources/2 = SubResource("TileSetAtlasSource_gprau")
-sources/3 = SubResource("TileSetAtlasSource_lc7ux")
-sources/4 = SubResource("TileSetAtlasSource_3dckf")
 
 [node name="Escena1" type="Node2D" unique_id=2072783153]
 
@@ -177,21 +57,6 @@ color = Color(0, 0.827451, 1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="Mundo" unique_id=1590912612]
 
-[node name="piso superior" type="TileMapLayer" parent="Mundo" unique_id=315379678]
-y_sort_enabled = true
-texture_filter = 1
-position = Vector2(570.2298, 290.93124)
-tile_map_data = PackedByteArray("AAD2//L/AAACAAUAAAD2//P/AAACAAUAAAD2//T/AAACAAUAAAD2//X/AAACAAUAAAD2//b/AAACAAUAAAD2//f/AAACAAUAAAD2//j/AAACAAUAAAD2//n/AAACAAUAAAD3//b/AAACAAUAAAD3//f/AAACAAUAAAD3//j/AAACAAUAAAD3//n/AAACAAUAAAD4//T/AAACAAUAAAD4//j/AAACAAUAAAD4//n/AAACAAUAAAD5//T/AAACAAUAAAD5//b/AAACAAUAAAD5//n/AAACAAUAAAD6//T/AAACAAUAAAD6//n/AAACAAUAAAD7//T/AAACAAUAAAD7//f/AAACAAUAAAD7//j/AAACAAUAAAD7//n/AAACAAUAAAD8//j/AAACAAUAAAD8//n/AAACAAUAAAD8//r/AAACAAUAAAD8//v/AAACAAUAAAD3//r/AAAFAAUAAAD2//r/AAACAAUAAAD4//r/AAAFAAUAAAD5//r/AAAFAAUAAAD6//r/AAAFAAUAAAD7//r/AAAFAAUAAAD7//v/AAACAAUAAAD6//v/AAACAAUAAAD5//v/AAACAAUAAAD4//v/AAACAAUAAAD2//v/AAACAAUAAAD8//X/AAAFAAUAAAD8//T/AAAFAAUAAAD8//P/AAAFAAUAAAD8//L/AAAFAAUAAAD7//L/AAAFAAUAAAD6//L/AAAFAAUAAAD5//L/AAAFAAUAAAD4//L/AAAFAAUAAAD3//L/AAAFAAUAAAD3//P/AAAFAAUAAAD4//P/AAAFAAUAAAD5//P/AAAFAAUAAAD6//P/AAAFAAUAAAD7//P/AAAFAAUAAAD3//T/AAAFAAUAAAD3//X/AAAFAAUAAAD4//X/AAAFAAUAAAD5//X/AAAFAAUAAAD6//X/AAAFAAUAAAD7//X/AAAFAAUAAAD7//b/AAAFAAUAAAD6//b/AAAFAAUAAAD6//f/AAAFAAUAAAD5//f/AAAFAAUAAAD4//f/AAAFAAUAAAD4//b/AAAFAAUAAAD5//j/AAAFAAUAAAD6//j/AAAFAAUAAAD8//f/AAAFAAUAAAD9//f/AAACAAUAAAD9//j/AAACAAUAAAD9//n/AAACAAUAAAD9//r/AAACAAUAAAD9//v/AAACAAUAAAD8//b/AAAFAAUAAAD3//v/AAACAAUAAAD8//z/AAACAAUAAAD7//z/AAACAAUAAAD6//z/AAACAAUAAAD5//z/AAACAAUAAAD4//z/AAACAAUAAAD3//z/AAACAAUAAAD2//z/AAACAAUAAAD9//z/AAACAAUAAAD9//b/AAACAAUAAAD9//X/AAACAAUAAAD9//T/AAACAAUAAAD9//P/AAACAAUAAAD9//L/AAACAAUAAAA=")
-tile_set = SubResource("TileSet_rctjs")
-y_sort_origin = 10
-collision_enabled = false
-
-[node name="paredes superior" type="TileMapLayer" parent="Mundo" unique_id=1763898148]
-y_sort_enabled = true
-tile_map_data = PackedByteArray("AAABABoAAAADAAAAABACABoAAAAFAAAAABADABoAAAAFAAAAABAEABoAAAAAAAEAABAFABoAAAADAAAAABAGABoAAAAFAAAAABAHABoAAAAAAAAAAAAHABsAAAAFAAAAAAAHABwAAAAAAAAAAAAIABwAAAAFAAAAABAJABwAAAAEAAAAABAKABwAAAAFAAAAABALABwAAAAFAAAAABAMABwAAAAAAAEAABANABwAAAAEAAAAABAOABwAAAAFAAAAABAPABwAAAAFAAAAABAQABwAAAAFAAAAABARABwAAAAAAAEAABASABwAAAAEAAAAABATABwAAAAAAAAAABATAB0AAAAEAAAAAAATAB4AAAAFAAAAAAATAB8AAAAFAAAAAAATACAAAAAFAAAAAAATACEAAAAEAAAAAAATACIAAAAEAAAAAAATACMAAAAAAAEAAAATACQAAAAFAAAAAAATACUAAAAEAAAAAAATACYAAAAEAAAAAAATACcAAAAAAAEAAAATACgAAAAFAAAAAAATACkAAAAFAAAAAAATACoAAAAFAAAAAAATACsAAAADAAAAAAATACwAAAAEAAAAAAATAC0AAAAFAAAAAAATAC4AAAAFAAAAAAATAC8AAAAFAAAAAAATADAAAAAEAAAAAAATADEAAAAEAAAAAAATADIAAAAEAAAAAAATADMAAAAAAAAAABAIACMAAAAFAAAAABAHACMAAAAAAAAAAAAHAB0AAAAFAAAAAAAHACAAAAAAAAAAAAAHACEAAAAFAAAAAAAHACIAAAAFAAAAAAAJACMAAAAFAAAAABAHAB8AAAACAAAAAAAHAB4AAAACAAAAAAD7/xUAAgAAAAAAAAD8/xUAAgABAAAAAAD9/xcAAwAAAAAAABD9/x0AAwAAAAAAABD9/x4AAwAAAAAAABD2/xUAAgABAAAAAAD4/xUAAwAAAAAAAAD3/xYABAAAAAAAAAA=")
-tile_set = SubResource("TileSet_mn21g")
-y_sort_origin = 14
-
 [node name="Character" parent="Mundo" unique_id=1749285248 instance=ExtResource("12_pwnkn")]
 z_index = 5
 position = Vector2(283, 282)
@@ -205,8 +70,3 @@ process_callback = 0
 layer = 10
 
 [node name="MenuPausa" parent="Mundo/InterfazPausa" unique_id=721427142 instance=ExtResource("13_wx8ba")]
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=736825435]
-stream = ExtResource("12_eyamy")
-autoplay = true
-bus = &"Musica"
