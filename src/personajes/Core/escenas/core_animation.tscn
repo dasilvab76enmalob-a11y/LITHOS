@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bnyas0j7ajjr1"]
 
-[ext_resource type="Script" uid="uid://fjbtcwgh3s35" path="res://src/personajes/core/scripts/core_animation.gd" id="1_sh7ga"]
-[ext_resource type="Texture2D" uid="uid://qxjyup4xk2pg" path="res://src/personajes/core/assets/core_sprite.png" id="2_5ed42"]
+[ext_resource type="Script" uid="uid://fjbtcwgh3s35" path="res://src/personajes/Core/scripts/core_animation.gd" id="1_sh7ga"]
+[ext_resource type="Texture2D" uid="uid://dl2j4doxn2jph" path="res://src/personajes/Core/assets/core_sprite.png" id="2_5ed42"]
 [ext_resource type="AnimationLibrary" uid="uid://ic22ace6gv4j" path="res://src/common/animaciones/animaciones_libreria/animaciones_caminar.res" id="3_8nvk4"]
 [ext_resource type="AnimationLibrary" uid="uid://cqqye15bk8y0k" path="res://src/common/animaciones/animaciones_libreria/animaciones_correr.res" id="4_tvlok"]
 [ext_resource type="AnimationLibrary" uid="uid://cla8vks4fyomh" path="res://src/common/animaciones/animaciones_libreria/animaciones_parado.res" id="5_qd2c8"]
@@ -61,6 +61,7 @@ position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_k0816")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1079511918]
+visible = false
 position = Vector2(-3, -17)
 offset = Vector2(0, -20)
 zoom = Vector2(3, 3)

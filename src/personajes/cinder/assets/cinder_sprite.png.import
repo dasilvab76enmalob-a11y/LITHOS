@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbi5vsk81v3yv"
-path="res://.godot/imported/cinder_sprite.png-70dade673f434caeda34555b4db8a1c5.ctex"
+path="res://.godot/imported/cinder_sprite.png-a0d48e16117b771f37e7c6ab9bc7ac25.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/personajes/cinder/assets/cinder_sprite.png"
-dest_files=["res://.godot/imported/cinder_sprite.png-70dade673f434caeda34555b4db8a1c5.ctex"]
+source_file="res://src/personajes/Cinder/assets/cinder_sprite.png"
+dest_files=["res://.godot/imported/cinder_sprite.png-a0d48e16117b771f37e7c6ab9bc7ac25.ctex"]
 
 [params]
 

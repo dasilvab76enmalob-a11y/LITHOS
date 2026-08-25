@@ -14,6 +14,9 @@ var input : Vector2
 var raw_input : Vector2
 var playback : AnimationNodeStateMachinePlayback
 
+# Variable para controlar el bloqueo del cofre u otros eventos
+var movimiento_congelado : bool = false
+
 const DIAGONAL_RELEASE_GRACE := 0.1
 const CARDINAL_CONFIRM_TIME := 0.025
 const DIRECTION_EPSILON := 0.01
@@ -37,6 +40,14 @@ func _ready():
 	if camara_mundo: camara_mundo.enabled = false
 
 func _physics_process(delta: float) -> void:
+	# Si el movimiento está congelado por el cofre, detenemos físicas y actualizamos animación a parado
+	if movimiento_congelado:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		update_animation_parameters(delta)
+		select_animation()
+		return
+	
 	raw_input = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	input = _resolve_input(raw_input, delta)
 	
@@ -147,3 +158,13 @@ func _resolve_input(current_raw_input: Vector2, delta: float) -> Vector2:
 
 	previous_raw_input = current_raw_input
 	return resolved_input
+
+# --- FUNCIONES DE CONTROL DE MOVIMIENTO (Para el cofre y diálogos) ---
+func congelar_movimiento() -> void:
+	movimiento_congelado = true
+	input = Vector2.ZERO
+	raw_input = Vector2.ZERO
+	velocity = Vector2.ZERO
+
+func descongelar_movimiento() -> void:
+	movimiento_congelado = false
