@@ -1,0 +1,106 @@
+[gd_scene format=4 uid="uid://ipdpxsrrvxoq"]
+
+[ext_resource type="Script" uid="uid://bnlfni0053f37" path="res://src/common/scripts/combate.gd" id="1_rqr2e"]
+[ext_resource type="Script" uid="uid://dd40skfvisoej" path="res://src/common/scripts/combatiente.gd" id="2_5uynm"]
+[ext_resource type="Texture2D" uid="uid://cg3ncmmca0iq" path="res://src/escenarios/roomcore/roomcore.png" id="2_gic2l"]
+[ext_resource type="Texture2D" uid="uid://dl2j4doxn2jph" path="res://src/personajes/Core/assets/core_sprite.png" id="3_bji3h"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bji3h"]
+texture = ExtResource("2_gic2l")
+texture_region_size = Vector2i(32, 16)
+6:10/0 = 0
+7:10/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_bldnx"]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(32, 16)
+sources/0 = SubResource("TileSetAtlasSource_bji3h")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bji3h"]
+size = Vector2(32, 48)
+
+[sub_resource type="LabelSettings" id="LabelSettings_x5w7n"]
+
+[node name="Combate" type="Control" unique_id=651289066]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_rqr2e")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1339750683]
+layout_mode = 0
+offset_right = 1156.0
+offset_bottom = 649.0
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1595511109]
+position = Vector2(0, 1)
+tile_map_data = PackedByteArray("AAAYAA4AAAAHAAoAAAAYAA0AAAAHAAoAAAAYAAwAAAAHAAoAAAAYAAsAAAAHAAoAAAAYAAoAAAAHAAoAAAAUAAYAAAAHAAoAAAAUAAcAAAAHAAoAAAAUAAgAAAAHAAoAAAAUAAkAAAAHAAoAAAAUAAoAAAAHAAoAAAAUAAsAAAAHAAoAAAAUAAwAAAAHAAoAAAAUAA0AAAAHAAoAAAAUAA4AAAAHAAoAAAAUAA8AAAAHAAoAAAAUABAAAAAGAAoAAAAUABEAAAAHAAoAAAAVAAYAAAAHAAoAAAAVAAcAAAAHAAoAAAAVAAgAAAAHAAoAAAAVAAkAAAAHAAoAAAAVAAoAAAAHAAoAAAAVAAsAAAAHAAoAAAAVAAwAAAAHAAoAAAAVAA0AAAAHAAoAAAAVAA4AAAAHAAoAAAAVAA8AAAAHAAoAAAAVABAAAAAHAAoAAAAVABEAAAAHAAoAAAAWAAYAAAAHAAoAAAAWAAcAAAAHAAoAAAAWAAgAAAAHAAoAAAAWAAkAAAAHAAoAAAAWAAoAAAAHAAoAAAAWAAsAAAAHAAoAAAAWAAwAAAAHAAoAAAAWAA0AAAAHAAoAAAAWAA4AAAAHAAoAAAAWAA8AAAAHAAoAAAAWABAAAAAGAAoAAAAWABEAAAAHAAoAAAAXAAYAAAAHAAoAAAAXAAcAAAAHAAoAAAAXAAgAAAAHAAoAAAAXAAkAAAAHAAoAAAAXAAoAAAAHAAoAAAAXAAsAAAAHAAoAAAAXAAwAAAAHAAoAAAAXAA0AAAAHAAoAAAAXAA4AAAAHAAoAAAAXAA8AAAAHAAoAAAAXABAAAAAHAAoAAAAXABEAAAAHAAoAAAAYAAYAAAAHAAoAAAAYAAcAAAAHAAoAAAAYAAgAAAAHAAoAAAAYAAkAAAAHAAoAAAAYAA8AAAAHAAoAAAAYABAAAAAGAAoAAAAYABEAAAAHAAoAAAAZAAYAAAAHAAoAAAAZAAcAAAAHAAoAAAAZAAgAAAAHAAoAAAAZAAkAAAAHAAoAAAAZAAoAAAAHAAoAAAAZAAsAAAAHAAoAAAAZAAwAAAAGAAoAAAAZAA0AAAAHAAoAAAAZAA4AAAAGAAoAAAAZAA8AAAAHAAoAAAAZABEAAAAHAAoAAAAaAAYAAAAHAAoAAAAaAAcAAAAHAAoAAAAaAAgAAAAHAAoAAAAaAAkAAAAHAAoAAAAaAAoAAAAHAAoAAAAaAAsAAAAHAAoAAAAaAAwAAAAHAAoAAAAaAA0AAAAHAAoAAAAaAA4AAAAHAAoAAAAaAA8AAAAHAAoAAAAaABAAAAAGAAoAAAAaABEAAAAHAAoAAAAbAAYAAAAHAAoAAAAbAAcAAAAHAAoAAAAbAAgAAAAHAAoAAAAbAAkAAAAHAAoAAAAbAAoAAAAHAAoAAAAbAAsAAAAHAAoAAAAbAAwAAAAHAAoAAAAbAA0AAAAHAAoAAAAbAA4AAAAHAAoAAAAbAA8AAAAHAAoAAAAbABAAAAAHAAoAAAAbABEAAAAHAAoAAAAcAAYAAAAHAAoAAAAcAAcAAAAHAAoAAAAcAAgAAAAHAAoAAAAcAAkAAAAHAAoAAAAcAAoAAAAHAAoAAAAcAAsAAAAHAAoAAAAcAAwAAAAHAAoAAAAcAA0AAAAHAAoAAAAcAA4AAAAHAAoAAAAcAA8AAAAHAAoAAAAcABAAAAAGAAoAAAAcABEAAAAHAAoAAAAdAAYAAAAHAAoAAAAdAAcAAAAHAAoAAAAdAAgAAAAHAAoAAAAdAAkAAAAHAAoAAAAdAAoAAAAHAAoAAAAdAAsAAAAHAAoAAAAdAAwAAAAHAAoAAAAdAA0AAAAHAAoAAAAdAA4AAAAHAAoAAAAdAA8AAAAHAAoAAAAdABAAAAAHAAoAAAAdABEAAAAHAAoAAAAZABIAAAAGAAoAAAAZABQAAAAGAAoAAAAeABAAAAAGAAoAAAAZABYAAAAGAAoAAAA=")
+tile_set = SubResource("TileSet_bldnx")
+
+[node name="TileMapLayerRango" type="TileMapLayer" parent="." unique_id=87049960]
+position = Vector2(0, 2)
+tile_set = SubResource("TileSet_bldnx")
+
+[node name="VisualesCombate" type="Node2D" parent="." unique_id=1047194845]
+
+[node name="PosicionJugador" type="Marker2D" parent="VisualesCombate" unique_id=889521510]
+position = Vector2(172, 291)
+
+[node name="Sprite2D" type="Sprite2D" parent="VisualesCombate/PosicionJugador" unique_id=1394980130]
+position = Vector2(-11, 20)
+texture = ExtResource("3_bji3h")
+hframes = 13
+vframes = 13
+script = ExtResource("2_5uynm")
+
+[node name="Area2D" type="Area2D" parent="VisualesCombate/PosicionJugador/Sprite2D" unique_id=283763931]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisualesCombate/PosicionJugador/Sprite2D/Area2D" unique_id=257734618]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_bji3h")
+
+[node name="PosicionEnemigo" type="Marker2D" parent="VisualesCombate" unique_id=79064]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="VisualesCombate/PosicionEnemigo" unique_id=1860518927]
+position = Vector2(347, 240.28577)
+texture = ExtResource("3_bji3h")
+hframes = 13
+vframes = 13
+script = ExtResource("2_5uynm")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=527011962]
+visible = false
+
+[node name="Panel" type="VBoxContainer" parent="CanvasLayer" unique_id=634125656]
+offset_right = 334.0
+offset_bottom = 205.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=348026293]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_x5w7n")
+
+[node name="VidaJugador" type="ProgressBar" parent="CanvasLayer" unique_id=778106313]
+offset_left = 272.0
+offset_top = 385.0
+offset_right = 606.0
+offset_bottom = 412.0
+
+[node name="VidaEnemigo" type="ProgressBar" parent="CanvasLayer" unique_id=1819181791]
+offset_left = 274.0
+offset_top = 341.0
+offset_right = 605.0
+offset_bottom = 368.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1326264011]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Atacar" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=1930917282]
+layout_mode = 2
+text = "ATACAR"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1066503308]
+position = Vector2(172, 320)
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Atacar" to="." method="_on_atacar_pressed"]

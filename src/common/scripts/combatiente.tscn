@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://3oeid6rslies"]
+
+[ext_resource type="Script" uid="uid://dd40skfvisoej" path="res://src/common/scripts/combatiente.gd" id="1_xc58r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xc58r"]
+
+[node name="Combatiente" type="Node2D" unique_id=212714374]
+script = ExtResource("1_xc58r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=443231001]
+sprite_frames = SubResource("SpriteFrames_xc58r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=293054186]

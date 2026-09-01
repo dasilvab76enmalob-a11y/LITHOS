@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://d0bs8fef1okoh"]
+
+[ext_resource type="Script" path="res://src/common/scripts/combate.gd" id="1_rqr2e"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_x5w7n"]
+
+[node name="Combate" type="Control" unique_id=651289066]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_rqr2e")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1339750683]
+layout_mode = 0
+offset_right = 1156.0
+offset_bottom = 649.0
+
+[node name="VisualesCombate" type="Node2D" parent="." unique_id=1047194845]
+
+[node name="PosicionJugador" type="Marker2D" parent="VisualesCombate" unique_id=889521510]
+position = Vector2(174.7641, 262.1098)
+
+[node name="PosicionEnemigo" type="Marker2D" parent="VisualesCombate" unique_id=79064]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=527011962]
+
+[node name="Panel" type="VBoxContainer" parent="CanvasLayer" unique_id=634125656]
+offset_right = 334.0
+offset_bottom = 205.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel" unique_id=348026293]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_x5w7n")
+
+[node name="VidaJugador" type="ProgressBar" parent="CanvasLayer" unique_id=778106313]
+offset_left = 272.0
+offset_top = 385.0
+offset_right = 606.0
+offset_bottom = 412.0
+
+[node name="VidaEnemigo" type="ProgressBar" parent="CanvasLayer" unique_id=1819181791]
+offset_left = 274.0
+offset_top = 341.0
+offset_right = 605.0
+offset_bottom = 368.0

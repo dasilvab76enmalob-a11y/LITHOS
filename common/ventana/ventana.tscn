@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://drilyj1gs6d8h"]
+
+[ext_resource type="Script" uid="uid://d4fklpw1duh32" path="res://common/ventana/ventana.gd" id="1_7kfbi"]
+[ext_resource type="Texture2D" uid="uid://bmnsqk5tv422r" path="res://common/ventana/ventana.png" id="1_kkitc"]
+[ext_resource type="FontFile" uid="uid://deouxt8qgscsx" path="res://assets/fonts/static/Orbitron-Black.ttf" id="3_obq02"]
+
+[sub_resource type="Animation" id="Animation_iix2a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7kfbi"]
+resource_name = "ventana_abierta"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_obq02"]
+resource_name = "ventana_cerrada"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_qawtv"]
+resource_name = "ventana_inactiva"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ajmp3"]
+_data = {
+&"RESET": SubResource("Animation_iix2a"),
+&"ventana_abierta": SubResource("Animation_7kfbi"),
+&"ventana_cerrada": SubResource("Animation_obq02"),
+&"ventana_inactiva": SubResource("Animation_qawtv")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kkitc"]
+radius = 16.0
+height = 36.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajmp3"]
+size = Vector2(36, 33)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vg7pd"]
+font = ExtResource("3_obq02")
+font_size = 8
+
+[node name="Ventana" type="StaticBody2D" unique_id=497755375]
+script = ExtResource("1_7kfbi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1440775241]
+texture = ExtResource("1_kkitc")
+flip_h = true
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=546594125]
+libraries/ = SubResource("AnimationLibrary_ajmp3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=421893756]
+position = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_kkitc")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2066961892]
+
+[node name="Deteccion" type="CollisionShape2D" parent="Area2D" unique_id=1445072620]
+position = Vector2(-1, 13)
+shape = SubResource("RectangleShape2D_ajmp3")
+
+[node name="Interactuar" type="Label" parent="." unique_id=1931653922]
+visible = false
+offset_left = -32.0
+offset_top = -27.0
+offset_right = 41.0
+offset_bottom = -16.0
+text = "INTERACTUAR"
+label_settings = SubResource("LabelSettings_vg7pd")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

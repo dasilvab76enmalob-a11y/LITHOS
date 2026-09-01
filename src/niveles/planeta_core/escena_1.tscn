@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://bxk1jgiu5qvb4"]
 
 [ext_resource type="Texture2D" uid="uid://cg3ncmmca0iq" path="res://src/escenarios/roomcore/roomcore.png" id="3_y8mje"]
-[ext_resource type="PackedScene" uid="uid://drilyj1gs6d8h" path="res://common/ventana.tscn" id="4_v82su"]
-[ext_resource type="PackedScene" uid="uid://cxh52np4vyffn" path="res://common/cofre.tscn" id="5_yihyv"]
+[ext_resource type="PackedScene" uid="uid://drilyj1gs6d8h" path="res://common/ventana/ventana.tscn" id="4_v82su"]
+[ext_resource type="PackedScene" uid="uid://cxh52np4vyffn" path="res://common/cofre/cofre.tscn" id="5_yihyv"]
 [ext_resource type="PackedScene" uid="uid://bnyas0j7ajjr1" path="res://src/personajes/Core/escenas/core_animation.tscn" id="12_pwnkn"]
 [ext_resource type="PackedScene" uid="uid://deg7mwj3ux0s6" path="res://src/menus/menu_pausa/MenuPausa.tscn" id="13_wx8ba"]
 
@@ -111,6 +111,32 @@ texture_region_size = Vector2i(32, 16)
 5:6/0 = 0
 5:9/size_in_atlas = Vector2i(1, 3)
 5:9/0 = 0
+11:4/0 = 0
+0:7/size_in_atlas = Vector2i(2, 3)
+0:7/0 = 0
+2:7/size_in_atlas = Vector2i(2, 3)
+2:7/0 = 0
+2:7/0/texture_origin = Vector2i(0, 8)
+0:10/size_in_atlas = Vector2i(1, 2)
+0:10/0 = 0
+1:10/size_in_atlas = Vector2i(1, 2)
+1:10/0 = 0
+1:10/0/texture_origin = Vector2i(0, 8)
+2:10/size_in_atlas = Vector2i(1, 2)
+2:10/0 = 0
+2:10/0/texture_origin = Vector2i(0, 8)
+3:10/size_in_atlas = Vector2i(1, 2)
+3:10/0 = 0
+3:10/0/texture_origin = Vector2i(0, 8)
+0:12/size_in_atlas = Vector2i(2, 4)
+0:12/0 = 0
+0:12/0/texture_origin = Vector2i(0, 20)
+11:5/size_in_atlas = Vector2i(1, 4)
+11:5/0 = 0
+11:5/0/texture_origin = Vector2i(0, 18)
+12:5/size_in_atlas = Vector2i(1, 2)
+12:5/0 = 0
+12:5/0/texture_origin = Vector2i(0, 8)
 
 [sub_resource type="TileSet" id="TileSet_yihyv"]
 tile_shape = 1
@@ -208,20 +234,20 @@ tile_map_data = PackedByteArray("AAAWAAIAAQAEAAEAAAAWAAMAAQAEAAEAAAAWAAQAAQAEAAE
 tile_set = SubResource("TileSet_yihyv")
 
 [node name="paredes" type="TileMapLayer" parent="roomcore" unique_id=347580343]
-tile_map_data = PackedByteArray("AAAUAAsAAQAIAAAAAAAUAAAAAQAIAAAAAAAfAAAAAQAIAAAAABAVAAAAAQAHAAAAAAAWAAAAAQAHAAAAAAAYAAAAAQAHAAAAAAAZAAAAAQAHAAAAAAAaAAAAAQAHAAAAAAAbAAAAAQAHAAAAAAAcAAAAAQAHAAAAAAAdAAAAAQAHAAAAAAAeAAAAAQAHAAAAAAAUAAEAAQAHAAAAAAAUAAIAAQAHAAAAAAAUAAoAAQAHAAAAAAAUAAkAAQAHAAAAAAAUAAgAAQAHAAAAAAAUAAcAAQAHAAAAAAAUAAYAAQAHAAAAAAAUAAUAAQAHAAAAAAAUAAQAAQAHAAAAAAAUAAMAAQAHAAAAAAAZAAEAAQAGAAAAAAAaAAEAAQAHAAAAAAAVAAMAAQAJAAAAAAAVAAoAAQALAAAAAAAXAAAAAQAHAAAAAAAcAAEAAQAIAAAAABAbAAEAAQAHAAAAAAA=")
+tile_map_data = PackedByteArray("AAAUAAsAAQAIAAAAAAAUAAAAAQAIAAAAAAAfAAAAAQAIAAAAABAVAAAAAQAHAAAAAAAWAAAAAQAHAAAAAAAYAAAAAQAHAAAAAAAZAAAAAQAHAAAAAAAaAAAAAQAHAAAAAAAbAAAAAQAHAAAAAAAcAAAAAQAHAAAAAAAdAAAAAQAHAAAAAAAeAAAAAQAHAAAAAAAUAAEAAQAHAAAAAAAUAAIAAQAHAAAAAAAUAAoAAQAHAAAAAAAUAAkAAQAHAAAAAAAUAAgAAQAHAAAAAAAUAAcAAQAHAAAAAAAUAAYAAQAHAAAAAAAUAAUAAQAHAAAAAAAUAAQAAQAHAAAAAAAUAAMAAQAHAAAAAAAZAAEAAQAGAAAAAAAaAAEAAQAHAAAAAAAVAAMAAQAJAAAAAAAXAAAAAQAHAAAAAAAcAAEAAQAIAAAAABAbAAEAAQAHAAAAAAAVAAoAAQALAAAAAAA=")
 tile_set = SubResource("TileSet_yihyv")
 
 [node name="objetos" type="TileMapLayer" parent="roomcore" unique_id=1957975854]
-tile_map_data = PackedByteArray("AAAXAAcAAQAGAAUAAAAgAAMAAQAJAAQAABA=")
+tile_map_data = PackedByteArray("AAAXAAcAAQAGAAUAAAAgAAMAAQAJAAQAABAbAAIAAQAAAAcAABAXAAoAAQACAAoAAAAXAAUAAQABAAoAAAAUAAYAAQAAAAoAAAAbAA0AAQAAAAwAABAhAAcAAQACAAcAABAdAA0AAQADAAoAAAA=")
 tile_set = SubResource("TileSet_yihyv")
 
 [node name="Camara Mundo" type="Camera2D" parent="." unique_id=497349534]
-position = Vector2(331, 240)
+position = Vector2(342, 237)
 zoom = Vector2(2, 2)
 process_callback = 0
 
 [node name="Cofre" parent="." unique_id=1194543179 instance=ExtResource("5_yihyv")]
-position = Vector2(315, 215)
+position = Vector2(326, 206)
 
 [node name="Ventana" parent="." unique_id=1350555251 instance=ExtResource("4_v82su")]
 position = Vector2(362, 188)
