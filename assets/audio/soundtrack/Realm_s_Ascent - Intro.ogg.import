@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bi2j64cnl754a"
+path="res://.godot/imported/Realm_s_Ascent - Intro.ogg-e16abf7df2a218de0ce32ad2b348c2ca.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/soundtrack/Realm_s_Ascent - Intro.ogg"
+dest_files=["res://.godot/imported/Realm_s_Ascent - Intro.ogg-e16abf7df2a218de0ce32ad2b348c2ca.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

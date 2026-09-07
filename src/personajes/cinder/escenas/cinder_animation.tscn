@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://ds7o6y3o6ld4n"]
+
+[ext_resource type="Texture2D" uid="uid://cbi5vsk81v3yv" path="res://src/personajes/cinder/assets/cinder_sprite.png" id="1_3yl45"]
+[ext_resource type="AnimationLibrary" uid="uid://cla8vks4fyomh" path="res://src/common/animaciones/animaciones_libreria/animaciones_parado.res" id="1_cy6xo"]
+[ext_resource type="Animation" uid="uid://dumd05vtwuucx" path="res://src/common/animaciones/animaciones_separadas/caminar_abajo.res" id="2_clqrr"]
+[ext_resource type="Animation" uid="uid://d02yiul5n2xam" path="res://src/common/animaciones/animaciones_separadas/caminar_abajo_derecha.res" id="3_47emx"]
+[ext_resource type="Animation" uid="uid://01mutux3yvk4" path="res://src/common/animaciones/animaciones_separadas/caminar_abajo_izquierda.res" id="4_ihwy4"]
+[ext_resource type="Animation" uid="uid://8e2ku1bqxidx" path="res://src/common/animaciones/animaciones_separadas/caminar_arriba.res" id="5_h8lne"]
+[ext_resource type="Animation" uid="uid://5o36rf5pxov4" path="res://src/common/animaciones/animaciones_separadas/caminar_arriba_derecha.res" id="6_ajl8n"]
+[ext_resource type="Animation" uid="uid://wci4q11v66vy" path="res://src/common/animaciones/animaciones_separadas/caminar_arriba_izquierda.res" id="7_vo3si"]
+[ext_resource type="Animation" uid="uid://b2qw00y375w5" path="res://src/common/animaciones/animaciones_separadas/caminar_derecha.res" id="8_sgk4f"]
+[ext_resource type="Animation" uid="uid://yj1t1rc0gkwg" path="res://src/common/animaciones/animaciones_separadas/caminar_izquierda.res" id="9_2ywkn"]
+[ext_resource type="AnimationLibrary" uid="uid://cqqye15bk8y0k" path="res://src/common/animaciones/animaciones_libreria/animaciones_correr.res" id="10_47emx"]
+[ext_resource type="AnimationNodeStateMachine" uid="uid://bod30v77jl24m" path="res://src/common/animaciones/animation_tree/arbol_base_personajes.tres" id="12_ihwy4"]
+[ext_resource type="Script" uid="uid://bth8am3jnebyj" path="res://src/personajes/cinder/scripts/cinder_animation.gd" id="13_cinder_script"]
+
+[sub_resource type="Animation" id="Animation_lhyd8"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ossq7"]
+_data = {
+&"RESET": SubResource("Animation_lhyd8")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s5pxi"]
+_data = {
+&"caminar_abajo": ExtResource("2_clqrr"),
+&"caminar_abajo_derecha": ExtResource("3_47emx"),
+&"caminar_abajo_izquierda": ExtResource("4_ihwy4"),
+&"caminar_arriba": ExtResource("5_h8lne"),
+&"caminar_arriba_derecha": ExtResource("6_ajl8n"),
+&"caminar_arriba_izquierda": ExtResource("7_vo3si"),
+&"caminar_derecha": ExtResource("8_sgk4f"),
+&"caminar_izquierda": ExtResource("9_2ywkn")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d05rf"]
+size = Vector2(12, 5)
+
+[node name="Player" type="CharacterBody2D" unique_id=1631291207]
+script = ExtResource("13_cinder_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1346683898]
+texture = ExtResource("1_3yl45")
+hframes = 12
+vframes = 11
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2097330911]
+libraries/ = SubResource("AnimationLibrary_ossq7")
+libraries/animaciones_caminar = SubResource("AnimationLibrary_s5pxi")
+libraries/animaciones_correr = ExtResource("10_47emx")
+libraries/animaciones_parado = ExtResource("1_cy6xo")
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=1655298541]
+tree_root = ExtResource("12_ihwy4")
+anim_player = NodePath("../AnimationPlayer")
+parameters/caminar/blend_position = Vector2(0, 0)
+parameters/correr/blend_position = Vector2(0, 0)
+parameters/parado/blend_position = Vector2(0, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=326247399]
+position = Vector2(-3, 18.5)
+shape = SubResource("RectangleShape2D_d05rf")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1137570789]
+position = Vector2(-3, -17)
+offset = Vector2(0, -20)
+zoom = Vector2(3, 3)
+process_callback = 0

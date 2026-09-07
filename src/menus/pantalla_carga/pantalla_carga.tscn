@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://bx73fntyrqhsu"]
+
+[ext_resource type="Script" uid="uid://1skkhc8672v7" path="res://src/menus/pantalla_carga/pantalla_carga_script.gd" id="1_28f0y"]
+[ext_resource type="Texture2D" uid="uid://c0v4mrcdfxdix" path="res://src/background/Althea Pantalla.webp" id="2_a7q23"]
+[ext_resource type="FontFile" uid="uid://cvps6332veja8" path="res://assets/fonts/static/Orbitron-Medium.ttf" id="3_28f0y"]
+
+[sub_resource type="FontVariation" id="FontVariation_hw1ae"]
+base_font = ExtResource("3_28f0y")
+
+[sub_resource type="LabelSettings" id="LabelSettings_t1fy3"]
+font = SubResource("FontVariation_hw1ae")
+font_size = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4spn1"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="PantallaDeCarga" type="Node2D" unique_id=1204082473]
+script = ExtResource("1_28f0y")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1602148079]
+offset_right = 1151.0
+offset_bottom = 645.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Althea Pantalla" type="Sprite2D" parent="ColorRect" unique_id=1023952000]
+position = Vector2(573.5, 327.00003)
+scale = Vector2(0.76236975, 0.6445313)
+texture = ExtResource("2_a7q23")
+
+[node name="Label" type="Label" parent="." unique_id=43818951]
+offset_left = 28.0
+offset_top = 519.0
+offset_right = 573.0
+offset_bottom = 563.0
+text = "Presione ENTER para continuar"
+label_settings = SubResource("LabelSettings_t1fy3")
+metadata/_edit_use_anchors_ = true
+
+[node name="BarraDeCarga" type="ProgressBar" parent="." unique_id=1636089442]
+offset_left = 83.0
+offset_top = 578.0
+offset_right = 476.0
+offset_bottom = 605.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_4spn1")

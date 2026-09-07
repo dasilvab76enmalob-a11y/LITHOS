@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://deg7mwj3ux0s6"]
+
+[ext_resource type="Script" uid="uid://c6k5w8ghmon4i" path="res://src/menus/menu_pausa/menu_pausa.gd" id="1_bikgn"]
+[ext_resource type="FontFile" uid="uid://cvps6332veja8" path="res://assets/fonts/static/Orbitron-Medium.ttf" id="14_xaiu1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_213ig"]
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+
+[sub_resource type="FontVariation" id="FontVariation_rgpnu"]
+base_font = ExtResource("14_xaiu1")
+
+[sub_resource type="LabelSettings" id="LabelSettings_fvx5a"]
+font = SubResource("FontVariation_rgpnu")
+
+[node name="MenuPausa" type="Control" unique_id=1553864943]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="InterfazPausa" type="CanvasLayer" parent="." unique_id=1028534052]
+layer = 10
+
+[node name="MenuPausa" type="Control" parent="InterfazPausa" unique_id=1915702904]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_bikgn")
+
+[node name="ColorRect" type="ColorRect" parent="InterfazPausa/MenuPausa" unique_id=8614778]
+layout_mode = 0
+offset_left = -10.0
+offset_top = -4.0
+offset_right = 1179.0
+offset_bottom = 666.0
+color = Color(0, 0, 0, 0.5)
+
+[node name="CenterContainer" type="CenterContainer" parent="InterfazPausa/MenuPausa" unique_id=1458160180]
+layout_mode = 0
+offset_left = 659.0
+offset_top = 78.0
+offset_right = 935.0
+offset_bottom = 512.0
+
+[node name="PanelContainer" type="PanelContainer" parent="InterfazPausa/MenuPausa/CenterContainer" unique_id=152310006]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_213ig")
+
+[node name="MarginContainer" type="MarginContainer" parent="InterfazPausa/MenuPausa/CenterContainer/PanelContainer" unique_id=1382273314]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InterfazPausa/MenuPausa/CenterContainer/PanelContainer/MarginContainer" unique_id=1895783914]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="InterfazPausa/MenuPausa/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1676125813]
+layout_mode = 2
+text = "PAUSA"
+label_settings = SubResource("LabelSettings_fvx5a")
+
+[node name="HSeparator" type="HSeparator" parent="InterfazPausa/MenuPausa/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=250081551]
+layout_mode = 2
+
+[node name="Continuar" type="Button" parent="InterfazPausa/MenuPausa/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1237761786]
+layout_mode = 2
+text = "CONTINUAR"
+
+[node name="Items" type="Button" parent="InterfazPausa/MenuPausa/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=221845123]
+layout_mode = 2
+text = "ITEMS"
+
+[node name="Habilidades" type="Button" parent="InterfazPausa/MenuPausa/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1826509792]
+layout_mode = 2
+text = "HABILIDADES
+"
+
+[node name="Opciones" type="Button" parent="InterfazPausa/MenuPausa/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=789821701]
+layout_mode = 2
+text = "OPCIONES"
+
+[node name="Menu Principal" type="Button" parent="InterfazPausa/MenuPausa/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=136006622]
+layout_mode = 2
+text = "MENU PRINCIPAL"
+
+[node name="Salir" type="Button" parent="InterfazPausa/MenuPausa/CenterContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=2080653856]
+layout_mode = 2
+text = "SALIR"
+
+[connection signal="pressed" from="InterfazPausa/MenuPausa/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Continuar" to="InterfazPausa/MenuPausa" method="_on_continuar_pressed"]
+[connection signal="pressed" from="InterfazPausa/MenuPausa/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Opciones" to="InterfazPausa/MenuPausa" method="_on_opciones_pressed"]
+[connection signal="pressed" from="InterfazPausa/MenuPausa/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Menu Principal" to="InterfazPausa/MenuPausa" method="_on_menu_principal_pressed"]
+[connection signal="pressed" from="InterfazPausa/MenuPausa/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Salir" to="InterfazPausa/MenuPausa" method="_on_salir_pressed"]

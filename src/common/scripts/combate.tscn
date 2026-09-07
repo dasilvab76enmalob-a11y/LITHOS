@@ -1,0 +1,104 @@
+[gd_scene format=4 uid="uid://ipdpxsrrvxoq"]
+
+[ext_resource type="Script" uid="uid://bnlfni0053f37" path="res://src/common/scripts/combate.gd" id="1_rqr2e"]
+[ext_resource type="Texture2D" uid="uid://bx5dpin5u8c4t" path="res://src/escenarios/roomcore/rango.png" id="2_uslb6"]
+[ext_resource type="Texture2D" uid="uid://d4bocq6w50res" path="res://src/escenarios/roomcore/Sprite-0001.png" id="3_8sqcv"]
+[ext_resource type="Texture2D" uid="uid://dl2j4doxn2jph" path="res://src/personajes/Core/assets/core_sprite.png" id="3_bji3h"]
+[ext_resource type="Script" uid="uid://u31afnsnn868" path="res://src/common/scripts/unidadtactica.gd" id="4_8sqcv"]
+[ext_resource type="AnimationLibrary" uid="uid://ic22ace6gv4j" path="res://src/common/animaciones/animaciones_libreria/animaciones_caminar.res" id="5_8ff2y"]
+[ext_resource type="AnimationLibrary" uid="uid://cqqye15bk8y0k" path="res://src/common/animaciones/animaciones_libreria/animaciones_correr.res" id="6_iyoua"]
+[ext_resource type="AnimationLibrary" uid="uid://cla8vks4fyomh" path="res://src/common/animaciones/animaciones_libreria/animaciones_parado.res" id="7_8bhtd"]
+[ext_resource type="PackedScene" uid="uid://deg7mwj3ux0s6" path="res://src/menus/menu_pausa/MenuPausa.tscn" id="9_8ff2y"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1r7k"]
+texture = ExtResource("2_uslb6")
+texture_region_size = Vector2i(32, 16)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3blpl"]
+texture = ExtResource("3_8sqcv")
+texture_region_size = Vector2i(32, 16)
+0:0/size_in_atlas = Vector2i(1, 2)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -8)
+
+[sub_resource type="TileSet" id="TileSet_bldnx"]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(32, 16)
+sources/1 = SubResource("TileSetAtlasSource_3blpl")
+sources/0 = SubResource("TileSetAtlasSource_f1r7k")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bji3h"]
+size = Vector2(20.000008, 43.50876)
+
+[sub_resource type="Animation" id="Animation_x3f3r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [55]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_n8qy4"]
+_data = {
+&"RESET": SubResource("Animation_x3f3r")
+}
+
+[node name="Combate" type="Control" unique_id=651289066]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_rqr2e")
+
+[node name="Suelo" type="TileMapLayer" parent="." unique_id=1595511109]
+position = Vector2(0, 1)
+tile_map_data = PackedByteArray("AAAYAA4AAQAAAAAAAAAYAA0AAQAAAAAAAAAYAAwAAQAAAAAAAAAYAAsAAQAAAAAAAAAYAAoAAQAAAAAAAAAUAAYAAQAAAAAAAAAUAAcAAQAAAAAAAAAUAAgAAQAAAAAAAAAUAAkAAQAAAAAAAAAUAAoAAQAAAAAAAAAUAAsAAQAAAAAAAAAUAAwAAQAAAAAAAAAUAA0AAQAAAAAAAAAUAA4AAQAAAAAAAAAUAA8AAQAAAAAAAAAUABAAAQAAAAAAAAAUABEAAQAAAAAAAAAVAAYAAQAAAAAAAAAVAAcAAQAAAAAAAAAVAAgAAQAAAAAAAAAVAAkAAQAAAAAAAAAVAAoAAQAAAAAAAAAVAAsAAQAAAAAAAAAVAAwAAQAAAAAAAAAVAA0AAQAAAAAAAAAVAA4AAQAAAAAAAAAVAA8AAQAAAAAAAAAVABAAAQAAAAAAAAAVABEAAQAAAAAAAAAWAAYAAQAAAAAAAAAWAAcAAQAAAAAAAAAWAAgAAQAAAAAAAAAWAAkAAQAAAAAAAAAWAAoAAQAAAAAAAAAWAAsAAQAAAAAAAAAWAAwAAQAAAAAAAAAWAA0AAQAAAAAAAAAWAA4AAQAAAAAAAAAWAA8AAQAAAAAAAAAWABAAAQAAAAAAAAAWABEAAQAAAAAAAAAXAAYAAQAAAAAAAAAXAAcAAQAAAAAAAAAXAAgAAQAAAAAAAAAXAAkAAQAAAAAAAAAXAAoAAQAAAAAAAAAXAAsAAQAAAAAAAAAXAAwAAQAAAAAAAAAXAA0AAQAAAAAAAAAXAA4AAQAAAAAAAAAXAA8AAQAAAAAAAAAXABAAAQAAAAAAAAAXABEAAQAAAAAAAAAYAAYAAQAAAAAAAAAYAAcAAQAAAAAAAAAYAAgAAQAAAAAAAAAYAAkAAQAAAAAAAAAYAA8AAQAAAAAAAAAYABAAAQAAAAAAAAAYABEAAQAAAAAAAAAZAAYAAQAAAAAAAAAZAAcAAQAAAAAAAAAZAAgAAQAAAAAAAAAZAAkAAQAAAAAAAAAZAAoAAQAAAAAAAAAZAAsAAQAAAAAAAAAZAAwAAQAAAAAAAAAZAA0AAQAAAAAAAAAZAA4AAQAAAAAAAAAZAA8AAQAAAAAAAAAZABEAAQAAAAAAAAAaAAYAAQAAAAAAAAAaAAcAAQAAAAAAAAAaAAgAAQAAAAAAAAAaAAkAAQAAAAAAAAAaAAoAAQAAAAAAAAAaAAsAAQAAAAAAAAAaAAwAAQAAAAAAAAAaAA0AAQAAAAAAAAAaAA4AAQAAAAAAAAAaAA8AAQAAAAAAAAAaABAAAQAAAAAAAAAaABEAAQAAAAAAAAAbAAYAAQAAAAAAAAAbAAcAAQAAAAAAAAAbAAgAAQAAAAAAAAAbAAkAAQAAAAAAAAAbAAoAAQAAAAAAAAAbAAsAAQAAAAAAAAAbAAwAAQAAAAAAAAAbAA0AAQAAAAAAAAAbAA4AAQAAAAAAAAAbAA8AAQAAAAAAAAAbABAAAQAAAAAAAAAbABEAAQAAAAAAAAAcAAYAAQAAAAAAAAAcAAcAAQAAAAAAAAAcAAgAAQAAAAAAAAAcAAkAAQAAAAAAAAAcAAoAAQAAAAAAAAAcAAsAAQAAAAAAAAAcAAwAAQAAAAAAAAAcAA0AAQAAAAAAAAAcAA4AAQAAAAAAAAAcAA8AAQAAAAAAAAAcABAAAQAAAAAAAAAcABEAAQAAAAAAAAAdAAYAAQAAAAAAAAAdAAcAAQAAAAAAAAAdAAgAAQAAAAAAAAAdAAkAAQAAAAAAAAAdAAoAAQAAAAAAAAAdAAsAAQAAAAAAAAAdAAwAAQAAAAAAAAAdAA0AAQAAAAAAAAAdAA4AAQAAAAAAAAAdAA8AAQAAAAAAAAAdABAAAQAAAAAAAAAdABEAAQAAAAAAAAAZABIAAQAAAAAAAAAZABQAAQAAAAAAAAAeABAAAQAAAAAAAAAZABYAAQAAAAAAAAAUABIAAQAAAAAAAAAUABMAAQAAAAAAAAAUABQAAQAAAAAAAAAUABUAAQAAAAAAAAAUABYAAQAAAAAAAAAVABIAAQAAAAAAAAAVABMAAQAAAAAAAAAVABQAAQAAAAAAAAAVABUAAQAAAAAAAAAVABYAAQAAAAAAAAAWABIAAQAAAAAAAAAWABMAAQAAAAAAAAAWABQAAQAAAAAAAAAWABUAAQAAAAAAAAAWABYAAQAAAAAAAAAXABIAAQAAAAAAAAAXABMAAQAAAAAAAAAXABQAAQAAAAAAAAAXABUAAQAAAAAAAAAXABYAAQAAAAAAAAAYABIAAQAAAAAAAAAYABMAAQAAAAAAAAAYABQAAQAAAAAAAAAYABUAAQAAAAAAAAAYABYAAQAAAAAAAAAZABAAAQAAAAAAAAAZABMAAQAAAAAAAAAZABUAAQAAAAAAAAAaABIAAQAAAAAAAAAaABMAAQAAAAAAAAAaABQAAQAAAAAAAAAaABUAAQAAAAAAAAAaABYAAQAAAAAAAAAbABIAAQAAAAAAAAAbABMAAQAAAAAAAAAbABQAAQAAAAAAAAAbABUAAQAAAAAAAAAbABYAAQAAAAAAAAAcABIAAQAAAAAAAAAcABMAAQAAAAAAAAAcABQAAQAAAAAAAAAcABUAAQAAAAAAAAAcABYAAQAAAAAAAAAdABIAAQAAAAAAAAAdABMAAQAAAAAAAAAdABQAAQAAAAAAAAAdABUAAQAAAAAAAAAdABYAAQAAAAAAAAAeAAYAAQAAAAAAAAAeAAcAAQAAAAAAAAAeAAgAAQAAAAAAAAAeAAkAAQAAAAAAAAAeAAoAAQAAAAAAAAAeAAsAAQAAAAAAAAAeAAwAAQAAAAAAAAAeAA0AAQAAAAAAAAAeAA4AAQAAAAAAAAAeAA8AAQAAAAAAAAAeABEAAQAAAAAAAAAeABIAAQAAAAAAAAAeABMAAQAAAAAAAAAeABQAAQAAAAAAAAAeABUAAQAAAAAAAAAeABYAAQAAAAAAAAAfAAYAAQAAAAAAAAAfAAcAAQAAAAAAAAAfAAgAAQAAAAAAAAAfAAkAAQAAAAAAAAAfAAoAAQAAAAAAAAAfAAsAAQAAAAAAAAAfAAwAAQAAAAAAAAAfAA0AAQAAAAAAAAAfAA4AAQAAAAAAAAAfAA8AAQAAAAAAAAAfABAAAQAAAAAAAAAfABEAAQAAAAAAAAAfABIAAQAAAAAAAAAfABMAAQAAAAAAAAAfABQAAQAAAAAAAAAfABUAAQAAAAAAAAAfABYAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_bldnx")
+
+[node name="RangoMovimiento" type="TileMapLayer" parent="." unique_id=87049960]
+modulate = Color(1, 1, 1, 0.5882353)
+z_index = 1
+position = Vector2(0, 2)
+tile_set = SubResource("TileSet_bldnx")
+
+[node name="Unidades" type="Node2D" parent="." unique_id=1047194845]
+
+[node name="PosicionJugador" type="Marker2D" parent="Unidades" unique_id=889521510]
+position = Vector2(174.61166, 308.5955)
+script = ExtResource("4_8sqcv")
+
+[node name="Sprite2D" type="Sprite2D" parent="Unidades/PosicionJugador" unique_id=1394980130]
+position = Vector2(3.3883333, -8.595499)
+scale = Vector2(0.6999999, 0.7125002)
+texture = ExtResource("3_bji3h")
+hframes = 12
+vframes = 11
+frame = 55
+
+[node name="Area2D" type="Area2D" parent="Unidades/PosicionJugador/Sprite2D" unique_id=283763931]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Unidades/PosicionJugador/Sprite2D/Area2D" unique_id=257734618]
+position = Vector2(-4.285721, 1.4035243)
+scale = Vector2(1.0000001, 1)
+shape = SubResource("RectangleShape2D_bji3h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Unidades/PosicionJugador" unique_id=605702016]
+libraries/ = SubResource("AnimationLibrary_n8qy4")
+libraries/animaciones_caminar = ExtResource("5_8ff2y")
+libraries/animaciones_correr = ExtResource("6_iyoua")
+libraries/animaciones_parado = ExtResource("7_8bhtd")
+
+[node name="Camera2D" type="Camera2D" parent="Unidades/PosicionJugador" unique_id=1066503308]
+position = Vector2(0.8927002, -3.9007874)
+zoom = Vector2(5, 5)
+
+[node name="MenuPausa" parent="." unique_id=1553864943 instance=ExtResource("9_8ff2y")]
+layout_mode = 0
+metadata/_edit_use_anchors_ = true

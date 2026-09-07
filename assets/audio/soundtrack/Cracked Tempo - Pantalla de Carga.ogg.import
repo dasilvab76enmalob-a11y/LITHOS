@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://kh1scvefs7rh"
+path="res://.godot/imported/Cracked Tempo - Pantalla de Carga.ogg-4373c9eaf90596abf46447164fa94dc5.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/soundtrack/Cracked Tempo - Pantalla de Carga.ogg"
+dest_files=["res://.godot/imported/Cracked Tempo - Pantalla de Carga.ogg-4373c9eaf90596abf46447164fa94dc5.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

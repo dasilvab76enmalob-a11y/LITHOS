@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dtfopyhroabte"
+path="res://.godot/imported/The_Obsidian_Council - Menu Principal.ogg-3be7d0808a2b17a3b0f13d453ade7929.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/audio/soundtrack/The_Obsidian_Council - Menu Principal.ogg"
+dest_files=["res://.godot/imported/The_Obsidian_Council - Menu Principal.ogg-3be7d0808a2b17a3b0f13d453ade7929.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

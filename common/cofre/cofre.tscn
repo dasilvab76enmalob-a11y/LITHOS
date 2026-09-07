@@ -1,0 +1,134 @@
+[gd_scene format=3 uid="uid://cxh52np4vyffn"]
+
+[ext_resource type="Script" uid="uid://bc40j2cc5a507" path="res://common/cofre/cofre.gd" id="1_frhof"]
+[ext_resource type="Texture2D" uid="uid://d2ghk1mmapyc4" path="res://common/cofre/cofre.png" id="2_vgymn"]
+[ext_resource type="FontFile" uid="uid://deouxt8qgscsx" path="res://assets/fonts/static/Orbitron-Black.ttf" id="3_vgymn"]
+[ext_resource type="FontFile" uid="uid://vs1x288jjmic" path="res://assets/fonts/static/Orbitron-Bold.ttf" id="4_8j1h6"]
+
+[sub_resource type="Animation" id="Animation_8j1h6"]
+resource_name = "abrir_cofre"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.2, 1.4, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_gwvwg"]
+resource_name = "cerrar_cofre"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6makg"]
+_data = {
+&"abrir_cofre": SubResource("Animation_8j1h6"),
+&"cerrar_cofre": SubResource("Animation_gwvwg")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bydaa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frhof"]
+size = Vector2(32, 24)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8j1h6"]
+font = ExtResource("3_vgymn")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_gwvwg"]
+font = ExtResource("3_vgymn")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_6makg"]
+font = ExtResource("4_8j1h6")
+font_size = 10
+
+[node name="Cofre" type="StaticBody2D" unique_id=787784873]
+script = ExtResource("1_frhof")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2094560573]
+texture = ExtResource("2_vgymn")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=188133753]
+libraries/ = SubResource("AnimationLibrary_6makg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1080981471]
+shape = SubResource("RectangleShape2D_bydaa")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1845377766]
+
+[node name="Deteccion" type="CollisionShape2D" parent="Area2D" unique_id=362672993]
+position = Vector2(-1, 4)
+shape = SubResource("RectangleShape2D_frhof")
+
+[node name="Interactuar" type="Label" parent="." unique_id=1131856170]
+offset_left = -32.0
+offset_top = -27.0
+offset_right = 41.0
+offset_bottom = -16.0
+text = "INTERACTUAR"
+label_settings = SubResource("LabelSettings_8j1h6")
+
+[node name="MenuOpciones" type="VBoxContainer" parent="." unique_id=1413111879]
+visible = false
+offset_left = -62.0
+offset_top = -81.0
+offset_right = 59.0
+offset_bottom = -14.0
+
+[node name="Label" type="Label" parent="MenuOpciones" unique_id=181397963]
+layout_mode = 2
+text = "¿Quieres abrir el cofre?"
+label_settings = SubResource("LabelSettings_gwvwg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SI" type="Button" parent="MenuOpciones" unique_id=1953218199]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "SI"
+
+[node name="NO" type="Button" parent="MenuOpciones" unique_id=1205608277]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "NO"
+
+[node name="PanelRecompensa" type="Panel" parent="." unique_id=1287763779]
+visible = false
+custom_minimum_size = Vector2(200, 50)
+offset_left = -96.0
+offset_top = 59.0
+offset_right = 104.0
+offset_bottom = 109.0
+
+[node name="LabelRecompensa" type="Label" parent="PanelRecompensa" unique_id=1077610891]
+layout_mode = 0
+offset_top = 9.0
+offset_right = 200.0
+offset_bottom = 40.0
+text = "Has obtenido una recompensa. Pulsa E para cerrar el cofre"
+label_settings = SubResource("LabelSettings_6makg")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
